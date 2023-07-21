@@ -4,13 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zelda Chicken Run</title>
-    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/styles.css">
 </head>
 <body>
 
     <!-- SPLASH SCREEN -->
     <div id="splash-screen" class="container">
         <img src="./images/logo.png" width="500" alt="logo">
+        <h1>The bad guys have found the ultimate weapon
+            to destroy Hyrule: the chickens!</h1>
+            <p>Stop them 
+                from unleashing their destructive power while 
+                you get some money 
+                
+                (..maybe you can buy something useful). </p>
         <button id="start-btn">Save Hyrule from the chickens!</button>
     </div>
 
@@ -22,17 +29,26 @@
 
     <!-- GAME OVER SCREEN -->
     <div id="gameover-screen" class="container">
+    <h1>GAME OVER</h1>
+    <p>The power of the chickens has been released and it destroyed Hyrule</p>
+    <h2>You saved xx rupees</h2>
+    <h3>...for what? You are homeless now</h3>
         <button id="restart-btn-gameover">Play again?</button>
     </div>
 
     <!-- YOU WON SCREEN -->
     <div id="youwon-screen" class="container">
+        <h1>YOU SAVED HYRULE!</h1>
+        <h2>You saved xx rupees</h2>
+        <h3>...enough to get the Master Sword to put an end to
+            all the evil from this world</h3>
         <button id="restart-btn-won">Play again?</button>
     </div>
 
 
 
-    <script src="./main.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/game.js"></script>
 
 </body>
 </html>

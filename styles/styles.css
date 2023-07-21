@@ -1,0 +1,54 @@
+body {
+    margin: 0;
+    background-color: rgb(255, 255, 255);
+}
+
+#start-btn, #restart-btn-gameover, #restart-btn-youwon {
+    background-color :blanchedalmond;
+    color:blue;
+    padding: 20px;
+  font-size: 20px;
+  margin-top: 40px;
+  border-radius: 10px; 
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+  }
+
+  #game-box {
+    background-color: darkgray;
+    width:600px;
+    height:400px;
+  
+    /* default settings for game box */
+    overflow: hidden;
+    /* this will prevent element from been visible outside the game box */
+    position: relative; /* this will allow elements to be positioned relative to the game-box */
+    user-select: none; /* this will prevent elements from being highlighted */
+  
+    background-image: url(../images/game-box.jpg);
+    background-position: center;
+    background-size: cover;
+  
+  }
+
+#splash-screen {
+    display: none;
+}
+
+  #game-screen{
+    display: none;
+  }
+
+  #gameover-screen {
+    display: none;
+  }
+
+  /* #youwon-screen {
+    display: none;
+  } */
