@@ -1,29 +1,68 @@
 body {
     margin: 0;
     background-color: rgb(255, 255, 255);
+    width: 100%;
+}
+
+#splash-screen{
+    background-image: url("../images/splash-screen2.png");
+    background-size: cover;
 }
 
 #start-btn, #restart-btn-gameover, #restart-btn-youwon {
     background-color :blanchedalmond;
     color:blue;
-    padding: 20px;
+    padding: 10px;
   font-size: 20px;
   margin-top: 40px;
   border-radius: 10px; 
 }
 
+#game-screen {
+    background-image: url("../images/trifuerzas4.png");
+    background-size: cover;
+}
+
 .container {
     display: flex;
-    flex-direction: column;
+    width: 100%; 
+    height: 100vh; /* Ajustar la altura para ocupar toda la pantalla */
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin: 50px;
-  }
+    margin: 0; /* Eliminar los márgenes para ocupar toda la pantalla */
+    padding: 0; /* Eliminar el padding para ocupar toda la pantalla */
+    overflow: hidden; /* Para evitar que haya barras de desplazamiento */
+}
+
+  /* .granero-img {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 250px;
+    height: 500px;
+    border: 3px solid rgb(91, 56, 6);
+    border-radius: 10px;
+    
+}
+
+
+.hierba-img {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 800px;
+    height: 500px;
+    border: 2px solid rgb(1, 124, 3);
+    border-radius: 10px;
+
+} */
+
 
   #game-box {
     background-color: darkgray;
-    width:600px;
-    height:400px;
+    width:900px;
+    height:500px;
   
     /* default settings for game box */
     overflow: hidden;
@@ -31,24 +70,12 @@ body {
     position: relative; /* this will allow elements to be positioned relative to the game-box */
     user-select: none; /* this will prevent elements from being highlighted */
   
-    background-image: url(../images/game-box.jpg);
+    background-image: url("../images/game-box.jpg");
     background-position: center;
     background-size: cover;
   
   }
 
-#splash-screen {
+#game-screen, #gameover-screen, #youwon-screen {
     display: none;
-}
-
-  #game-screen{
-    display: none;
-  }
-
-  #gameover-screen {
-    display: none;
-  }
-
-  /* #youwon-screen {
-    display: none;
-  } */
+  } 
