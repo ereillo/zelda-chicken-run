@@ -9,22 +9,40 @@ const gameBoxNode = document.querySelector("#game-box");
 const gameoverScreenNode = document.querySelector("#gameover-screen");
 const youwonScreenNode = document.querySelector("#youwon-screen");
 const reStartBtnNode = document.querySelector("#restart-btn"); // boton de reinicio
+const buttonSound = document.getElementById("button-sound");
+
 
 let gameObj = null;
 
 
 //STATE MANAGEMENT FUNCTIONS. QUÉ PÁGINA QUIERO QUE SE VEA Y CUÁL NO
 function startGame() {
-    //funcion para que el juego inicie
-splashScreenNode.style.display = "none"
-gameScreenNode.style.display = "flex"
+    splashScreenNode.classList.add("fade-out");
+  
+    setTimeout(function() {
+      splashScreenNode.style.display = "none";
+      gameScreenNode.style.display = "flex";
+  
+      // Iniciar el juego
+      gameObj = new Game();
+      gameObj.gameLoop();
+    }, 1000); 
+  }
 
-gameObj = new Game();
-console.log(gameObj);
 
 
-gameObj.gameLoop()
-}
+
+// function startGame() {
+//     //funcion para que el juego inicie
+// splashScreenNode.style.display = "none"
+// gameScreenNode.style.display = "flex"
+
+// gameObj = new Game();
+// console.log(gameObj);
+
+
+// gameObj.gameLoop()
+// }
 
 
 
@@ -32,6 +50,9 @@ gameObj.gameLoop()
 // * ADD EVENT LISTENERS
 
 startBtnNode.addEventListener("click", (startGame))
+startBtnNode.addEventListener("click", function() {
+    buttonSound.play();
+  });
 
 window.addEventListener("keydown", (event) => {
     console.log("Presionaste una tecla:", event.key);

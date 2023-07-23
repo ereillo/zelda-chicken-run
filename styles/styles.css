@@ -4,22 +4,61 @@ body {
     width: 100%;
 }
 
+/* Transición para ocultar el splash screen */
+.fade-out {
+    opacity: 0;
+    transition: opacity 1s ease-out;
+  }
+
 #splash-screen{
-    background-image: url("../images/splash-screen2.png");
+    position: relative; /* Establecemos el posicionamiento relativo para el contenedor */
+    height: 100vh;
+    background-image: url("../images/splash-screen3.png");
     background-size: cover;
 }
 
+@font-face {
+    font-family: "ButtonTipo"; 
+    src: url("../images/tipo2.ttf") format("truetype"); /* Ruta de la tipografía y formato */
+  }
+
+#splash-screen h1 {
+    position: absolute; 
+    top: 5%; 
+    right: -3%; 
+    width: 40%;
+    padding: 10%;
+    color: #a27026; 
+    font-size: 33px; 
+  }
+
+#splash-screen p {
+    position: absolute; 
+    top: 20%; 
+    right: -3%;
+    width: 40%;
+    padding: 10%;
+    color: #a27026; 
+    font-size: 33px; 
+    
+}
+
+
 #start-btn, #restart-btn-gameover, #restart-btn-youwon {
-    background-color :blanchedalmond;
-    color:blue;
+    background-color :#dce7f8;
+    color:#dec153;
     padding: 10px;
-  font-size: 20px;
-  margin-top: 40px;
-  border-radius: 10px; 
+  font-size: 30px;
+  margin-top: 400px;
+  border-radius: 100px; 
+  font-family: "ButtonTipo"
 }
 
 #game-screen {
-    background-image: url("../images/trifuerzas4.png");
+    background-image: url("../images/game-box2.png");
+    /* background-image: url("../images/trifuerzas4.png"); */
+    /* background-color: 
+    #153126; */
     background-size: cover;
 }
 
@@ -35,37 +74,13 @@ body {
     overflow: hidden; /* Para evitar que haya barras de desplazamiento */
 }
 
-  /* .granero-img {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    width: 250px;
-    height: 500px;
-    border: 3px solid rgb(91, 56, 6);
-    border-radius: 10px;
-    
-}
-
-
-.hierba-img {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    width: 800px;
-    height: 500px;
-    border: 2px solid rgb(1, 124, 3);
-    border-radius: 10px;
-
-} */
-
-
   #game-box {
     background-color: darkgray;
     width:900px;
     height:500px;
   
     /* default settings for game box */
-    overflow: hidden;
+    /* overflow: hidden; */
     /* this will prevent element from been visible outside the game box */
     position: relative; /* this will allow elements to be positioned relative to the game-box */
     user-select: none; /* this will prevent elements from being highlighted */
@@ -76,6 +91,99 @@ body {
   
   }
 
-#game-screen, #gameover-screen, #youwon-screen {
+
+  #gameover-screen {
+    position: relative; /* Establecemos el posicionamiento relativo para el contenedor */
+    background-image: url("../images/game-box2.png");
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+
+  #gameover-screen h1 {
+    position: relative;
+    font-size: 70px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    top: 20%;
+    color: red;
+    border-color: black;
+    border-radius: 10%;
+  }
+  
+  #gameover-screen p {
+    position: relative;
+    font-size: 24px;
+    margin-bottom: 20px;
+    top:28%;
+  }
+  
+  #gameover-screen h2 {
+    position: relative;
+    font-size: 18px;
+    margin-bottom: 10px;
+    top: 33%;
+  }
+
+  #gameover-screen h3 {
+    position: relative;
+    font-size: 18px;
+    margin-bottom: 10px;
+    top: 36%;
+  }
+  
+  #restart-btn-gameover {
+    font-size: 24px;
+    padding: 10px 20px;
+    background-color: blanchedalmond;
+    color: blue;
+    border-radius: 10px;
+    cursor: pointer;
+    top: 20%;
+  }
+
+
+  #youwon-screen {
+    background-image: url("../images/game-box2.png");
+    /* background-image: url("../images/trifuerzas4.png"); */
+    /* background-color: 
+    #153126; */
+    background-size: cover;
+  }
+
+  /* #youwon-screen h1 {
+    position: relative;
+    font-size: 70px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    top: 20%;
+    color: yellow;
+    border-color: black;
+    border-radius: 10%;
+  } */
+
+  #youwon-screen h2 {
+    position: relative;
+    font-size: 18px;
+    margin-bottom: 10px;
+    top: 50%;
+  }
+
+  #restart-btn-youwon {
+    font-size: 24px;
+    padding: 10px 20px;
+    background-color: blanchedalmond;
+    color: blue;
+    border-radius: 10px;
+    cursor: pointer;
+    top: 30%;
+  }
+
+
+  
+/* #game-screen, #gameover-screen, #youwon-screen {
     display: none;
-  } 
+  }  */

@@ -19,33 +19,37 @@ this.node.style.height = `${this.h}px`; // alto
 this.node.style.position = "absolute";
 this.node.style.top = `${this.y}px`; //posición inicial vertical
 this.node.style.left = `${this.x}px`;  //posición inicial horizontal
+
+this.linkMovement = 12;
 }
+
+ 
 
 //aquí los métodos de link (métodos se crean con funciones de flecha)
 moveUp = () => {
     if (this.y - 10 >= 0) {
-      this.y -= 10;
+      this.y -= this.linkMovement;
       this.node.style.top = `${this.y}px`;
     }
   }
 
   moveDown = () => {
     if (this.y + this.h + 10 <= gameBoxNode.clientHeight) {
-      this.y += 10;
+      this.y += this.linkMovement;
       this.node.style.top = `${this.y}px`;
     }
   }
 
   moveLeft = () => {
-    if (this.x - 10 >= 0) {
-      this.x -= 10;
+    if (this.x - 10 >= 230) {
+      this.x -= this.linkMovement;
       this.node.style.left = `${this.x}px`;
     }
   }
 
   moveRight = () => {
     if (this.x + this.w + 10 <= gameBoxNode.clientWidth) {
-      this.x += 10;
+      this.x += this.linkMovement;
       this.node.style.left = `${this.x}px`;
     }
   }

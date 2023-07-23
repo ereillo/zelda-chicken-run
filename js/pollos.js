@@ -1,7 +1,8 @@
 class Pollos {
 
     constructor(){
-        //creamos elemento en el DOM
+
+      //creamos elemento en el DOM
         this.node = document.createElement("img");
         this.node.src = "./images/pollo.png";
         gameBoxNode.append(this.node);
