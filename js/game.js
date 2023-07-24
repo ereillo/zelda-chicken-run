@@ -20,16 +20,28 @@ class Game {
 
     this.min = 200;
     this.max = 1000;
-    this.randomNumber = Math.floor(Math.random() * (this.max - this.min) + this.min);
+    this.randomNumber = Math.floor(
+      Math.random() * (this.max - this.min) + this.min
+    );
   }
+
+  youWon = () => {
+    this.isGameOn = false;
+    gameScreenNode.style.display = "none"; //ocultar la pantalla de juego
+    youwonScreenNode.style.display = "flex"; //mostrar la pantalla final
+  };
 
   gameOver = () => {
     this.isGameOn = false;
-    gameScreenNode.style.display = "none" //ocultar la pantalla de juego
-    gameoverScreenNode.style.display = "flex" //mostrar la pantalla final
-}
+    gameScreenNode.style.display = "none"; //ocultar la pantalla de juego
+    gameoverScreenNode.style.display = "flex"; //mostrar la pantalla final
+  };
+
   centaleonesAparecen = () => {
-    if (this.centaleonArr.length === 0 || this.frames % this.randomNumber === 0) {
+    if (
+      this.centaleonArr.length === 0 ||
+      this.frames % this.randomNumber === 0
+    ) {
       let nuevoCentaleon = new Centaleon();
       this.centaleonArr.push(nuevoCentaleon);
     }
@@ -47,7 +59,7 @@ class Game {
     this.centaleonArr.forEach((cadaCentaleon) => {
       if (
         this.pollos.x < cadaCentaleon.x + cadaCentaleon.w &&
-        this.pollos.x + this.pollos.w > cadaCentaleon.x &&       
+        this.pollos.x + this.pollos.w > cadaCentaleon.x &&
         this.pollos.y < cadaCentaleon.y + cadaCentaleon.h &&
         this.pollos.y + this.pollos.h > cadaCentaleon.y
       ) {
@@ -61,14 +73,14 @@ class Game {
     this.centaleonArr.forEach((cadaCentaleon, index) => {
       if (
         this.link.x < cadaCentaleon.x + cadaCentaleon.w &&
-        this.link.x + this.link.w > cadaCentaleon.x &&       
+        this.link.x + this.link.w > cadaCentaleon.x &&
         this.link.y < cadaCentaleon.y + cadaCentaleon.h &&
         this.link.y + this.link.h > cadaCentaleon.y
       ) {
         //al notar la colisión...
         this.centaleonArr.splice(index, 1);
-        gameBoxNode.removeChild(cadaCentaleon.node)
-    }
+        gameBoxNode.removeChild(cadaCentaleon.node);
+      }
     });
   };
 
@@ -77,7 +89,9 @@ class Game {
       let nuevoArañas = new Arañas();
       this.arañasArr.push(nuevoArañas);
     }
-    this.randomNumber = Math.floor(Math.random() * (this.max - this.min) + this.min)
+    this.randomNumber = Math.floor(
+      Math.random() * (this.max - this.min) + this.min
+    );
   };
 
   arañasDesaparecen = () => {
@@ -92,7 +106,7 @@ class Game {
     this.arañasArr.forEach((cadaAraña) => {
       if (
         this.pollos.x < cadaAraña.x + cadaAraña.w &&
-        this.pollos.x + this.pollos.w > cadaAraña.x &&       
+        this.pollos.x + this.pollos.w > cadaAraña.x &&
         this.pollos.y < cadaAraña.y + cadaAraña.h &&
         this.pollos.y + this.pollos.h > cadaAraña.y
       ) {
@@ -106,23 +120,28 @@ class Game {
     this.arañasArr.forEach((cadaAraña, index) => {
       if (
         this.link.x < cadaAraña.x + cadaAraña.w &&
-        this.link.x + this.link.w > cadaAraña.x &&       
+        this.link.x + this.link.w > cadaAraña.x &&
         this.link.y < cadaAraña.y + cadaAraña.h &&
         this.link.y + this.link.h > cadaAraña.y
       ) {
         //al notar la colisión...
         this.arañasArr.splice(index, 1);
-        gameBoxNode.removeChild(cadaAraña.node)
-    }
+        gameBoxNode.removeChild(cadaAraña.node);
+      }
     });
   };
 
   monstruosAparecen = () => {
-    if (this.monstruosArr.length === 0 || this.frames % this.randomNumber === 0) {
+    if (
+      this.monstruosArr.length === 0 ||
+      this.frames % this.randomNumber === 0
+    ) {
       let nuevoMonstruos = new Monstruos();
       this.monstruosArr.push(nuevoMonstruos);
     }
-    this.randomNumber = Math.floor(Math.random() * (this.max - this.min) + this.min)
+    this.randomNumber = Math.floor(
+      Math.random() * (this.max - this.min) + this.min
+    );
   };
 
   monstruosDesaparecen = () => {
@@ -132,12 +151,12 @@ class Game {
       this.monstruosArr.shift();
     }
   };
- 
+
   collisionMonstruosPollos = () => {
     this.monstruosArr.forEach((cadaMonstruo) => {
       if (
         this.pollos.x < cadaMonstruo.x + cadaMonstruo.w &&
-        this.pollos.x + this.pollos.w > cadaMonstruo.x &&       
+        this.pollos.x + this.pollos.w > cadaMonstruo.x &&
         this.pollos.y < cadaMonstruo.y + cadaMonstruo.h &&
         this.pollos.y + this.pollos.h > cadaMonstruo.y
       ) {
@@ -151,18 +170,16 @@ class Game {
     this.monstruosArr.forEach((cadaMonstruo, index) => {
       if (
         this.link.x < cadaMonstruo.x + cadaMonstruo.w &&
-        this.link.x + this.link.w > cadaMonstruo.x &&       
+        this.link.x + this.link.w > cadaMonstruo.x &&
         this.link.y < cadaMonstruo.y + cadaMonstruo.h &&
         this.link.y + this.link.h > cadaMonstruo.y
       ) {
         //al notar la colisión...
         this.monstruosArr.splice(index, 1);
-        gameBoxNode.removeChild(cadaMonstruo.node)
-    }
+        gameBoxNode.removeChild(cadaMonstruo.node);
+      }
     });
   };
-
-  
 
   gameLoop = () => {
     this.frames++;

@@ -10,6 +10,7 @@ const gameoverScreenNode = document.querySelector("#gameover-screen");
 const youwonScreenNode = document.querySelector("#youwon-screen");
 const reStartBtnNode = document.querySelector("#restart-btn-gameover"); // boton de reinicio
 const buttonSound = document.querySelector("#button-sound");
+const reStartBtnWonNode = document.querySelector("#restart-btn-youwon");
 
 let gameObj = null; 
 
@@ -17,15 +18,14 @@ let gameObj = null;
 //STATE MANAGEMENT FUNCTIONS. QUÉ PÁGINA QUIERO QUE SE VEA Y CUÁL NO
 function startGame() {
     splashScreenNode.classList.add("fade-out");
-  
     setTimeout(function() {
       splashScreenNode.style.display = "none";
       gameScreenNode.style.display = "flex";
-  
       // Iniciar el juego
       gameObj = new Game();
       gameObj.gameLoop();
     }, 1000); 
+    countdown();
   }
 
 function restartGame() {
@@ -56,6 +56,11 @@ reStartBtnNode.addEventListener("click", restartGame)
 reStartBtnNode.addEventListener("click", function() {    
 buttonSound.play();
     });
+
+reStartBtnWonNode.addEventListener("click", restartGame)
+reStartBtnWonNode.addEventListener("click", function() {
+    buttonSound.play();
+});
 
 window.addEventListener("keydown", (event) => {
     console.log("Presionaste una tecla:", event.key);

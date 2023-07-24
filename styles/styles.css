@@ -71,21 +71,15 @@ body {
     color: yellow;
     padding: 40px;
     font-size: 30px;
-}
-
-.time-left {
-    display: flex;
-    justify-content: right;
-    align-items: center;
-    margin: 0px;
-
-    background-color: transparent;
-    color: green;
-    padding-top: 0px;
-    padding-right: 40px;
-    font-size: 30px;
-    margin-top: 0px;
 } */
+
+#timer {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  color: white;
+}
 
 .container {
     display: flex;
@@ -104,9 +98,6 @@ body {
     width:900px;
     height:500px;
   
-    /* default settings for game box */
-    /* overflow: hidden; */
-    /* this will prevent element from been visible outside the game box */
     position: relative; /* this will allow elements to be positioned relative to the game-box */
     user-select: none; /* this will prevent elements from being highlighted */
   
