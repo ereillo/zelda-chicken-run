@@ -3,6 +3,7 @@ class Centaleon {
 constructor () {
 this.node = document.createElement("img")
 this.node.src = "./images/centaleon.png"
+this.isAlive = true
 gameBoxNode.append(this.node)
 
     

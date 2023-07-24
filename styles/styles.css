@@ -4,14 +4,14 @@ body {
     width: 100%;
 }
 
-/* Transición para ocultar el splash screen */
+/* Transición para ocultar el splash-screen */
 .fade-out {
     opacity: 0;
     transition: opacity 1s ease-out;
   }
 
 #splash-screen{
-    position: relative; /* Establecemos el posicionamiento relativo para el contenedor */
+    position: relative; 
     height: 100vh;
     background-image: url("../images/splash-screen3.png");
     background-size: cover;
@@ -62,6 +62,31 @@ body {
     background-size: cover;
 }
 
+/* .score {
+    display: flex;
+    justify-content: right;
+    margin: 0px;
+
+    background-color: transparent;
+    color: yellow;
+    padding: 40px;
+    font-size: 30px;
+}
+
+.time-left {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    margin: 0px;
+
+    background-color: transparent;
+    color: green;
+    padding-top: 0px;
+    padding-right: 40px;
+    font-size: 30px;
+    margin-top: 0px;
+} */
+
 .container {
     display: flex;
     width: 100%; 
@@ -93,7 +118,7 @@ body {
 
 
   #gameover-screen {
-    position: relative; /* Establecemos el posicionamiento relativo para el contenedor */
+    position: absolute; /* Establecemos el posicionamiento relativo para el contenedor */
     background-image: url("../images/game-box2.png");
     background-size: cover;
     display: flex;
@@ -108,20 +133,22 @@ body {
     font-size: 70px;
     font-weight: bold;
     margin-bottom: 20px;
-    top: 20%;
+    margin-top: -30px;
     color: red;
     border-color: black;
     border-radius: 10%;
   }
   
   #gameover-screen p {
+    display: flex;
     position: relative;
     font-size: 24px;
     margin-bottom: 20px;
-    top:28%;
+    margin-top:28%;
   }
   
   #gameover-screen h2 {
+    display: flex;
     position: relative;
     font-size: 18px;
     margin-bottom: 10px;
@@ -129,6 +156,7 @@ body {
   }
 
   #gameover-screen h3 {
+    display: flex;
     position: relative;
     font-size: 18px;
     margin-bottom: 10px;
@@ -136,13 +164,15 @@ body {
   }
   
   #restart-btn-gameover {
+    display: flex;
+    margin-top: -100px;
     font-size: 24px;
     padding: 10px 20px;
     background-color: blanchedalmond;
     color: blue;
     border-radius: 10px;
     cursor: pointer;
-    top: 20%;
+    /* top: 20%; */
   }
 
 
@@ -184,6 +214,6 @@ body {
 
 
   
-/* #game-screen, #gameover-screen, #youwon-screen {
+#game-screen, #gameover-screen, #youwon-screen {
     display: none;
-  }  */
+  } 

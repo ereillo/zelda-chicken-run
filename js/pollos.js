@@ -7,8 +7,8 @@ class Pollos {
         this.node.src = "./images/pollo.png";
         gameBoxNode.append(this.node);
     
-        // Generar coordenadas aleatorias para la posición inicial del pollo dentro del primer tercio del game-box
-        this.x = Math.random() * (gameBoxNode.clientWidth / 5);
+        // Generar coordenadas aleatorias para la posición inicial del pollo dentro del primer quinto del game-box
+        this.x = Math.random() * (gameBoxNode.clientWidth / 4);
         this.y = Math.random() * (gameBoxNode.clientHeight);
     
         this.w = 60;
@@ -23,6 +23,9 @@ class Pollos {
         // Velocidades de movimiento en el eje X e Y (inclinado)
         this.speedX = 2;
         this.speedY = 1;
+
+        let isPolloMovingRight = true;
+        let isPolloMovingDown = true;
       }
     
       // Método para mover al pollo
@@ -31,7 +34,7 @@ class Pollos {
     this.x += this.speedX;
     this.y += this.speedY;
 
-    // Verificar que el pollo no se salga del primer tercio del game-box
+    // Verificar que el pollo no se salga del primer cuarto del game-box
     if (this.x <= 0 || this.x + this.w >= gameBoxNode.clientWidth / 4) {
       this.speedX *= -1; // Invertir la dirección en el eje X si alcanza el borde izquierdo o derecho del primer tercio
     }

@@ -8,11 +8,10 @@ const gameScreenNode = document.querySelector("#game-screen") //pantalla de jueg
 const gameBoxNode = document.querySelector("#game-box");
 const gameoverScreenNode = document.querySelector("#gameover-screen");
 const youwonScreenNode = document.querySelector("#youwon-screen");
-const reStartBtnNode = document.querySelector("#restart-btn"); // boton de reinicio
-const buttonSound = document.getElementById("button-sound");
+const reStartBtnNode = document.querySelector("#restart-btn-gameover"); // boton de reinicio
+const buttonSound = document.querySelector("#button-sound");
 
-
-let gameObj = null;
+let gameObj = null; 
 
 
 //STATE MANAGEMENT FUNCTIONS. QUÉ PÁGINA QUIERO QUE SE VEA Y CUÁL NO
@@ -29,30 +28,34 @@ function startGame() {
     }, 1000); 
   }
 
+function restartGame() {
+    splashScreenNode.classList.add("fade-out");
+    
+    gameBoxNode.innerHTML = " "
 
+      gameScreenNode.style.display = "flex";      //PARA REINICIAR EL JUEGO
+      gameoverScreenNode.style.display = "none";
+      
 
-
-// function startGame() {
-//     //funcion para que el juego inicie
-// splashScreenNode.style.display = "none"
-// gameScreenNode.style.display = "flex"
-
-// gameObj = new Game();
-// console.log(gameObj);
-
-
-// gameObj.gameLoop()
-// }
-
+      // Iniciar el juego
+      gameObj = new Game();
+      gameObj.gameLoop();
+    // }, 1000); 
+  }
 
 
 
 // * ADD EVENT LISTENERS
 
-startBtnNode.addEventListener("click", (startGame))
+startBtnNode.addEventListener("click", startGame)
 startBtnNode.addEventListener("click", function() {
     buttonSound.play();
   });
+
+reStartBtnNode.addEventListener("click", restartGame)
+reStartBtnNode.addEventListener("click", function() {    
+buttonSound.play();
+    });
 
 window.addEventListener("keydown", (event) => {
     console.log("Presionaste una tecla:", event.key);
