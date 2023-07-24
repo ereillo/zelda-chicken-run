@@ -11,32 +11,40 @@
     <!-- SPLASH SCREEN -->
     <div id="splash-screen" class="container">
         <h1>The bad guys have found the ultimate weapon
-            to destroy Hyrule: the chickens!</h1>
+            to destroy Hyrule: the chicken!</h1>
             <p>Stop them 
-                from unleashing their destructive power while 
+                from unleashing the destructive power of the chicken while 
                 you collect some money 
                 
                 (...maybe you can get something useful). </p>
         <button id="start-btn">Save Hyrule from the chickens!</button>
         <audio id="button-sound">
             <source src="./sounds/sonido-pollo.mp3" type="audio/mpeg">
-        </audio>
-        <!-- <audio id="splash-music" autoplay loop>
-            <source src="./sounds/pantalla-inicio.mp3" type="audio/mpeg">
-        </audio> -->
+            <audio id="splash-music" src="./sounds/pantalla-inicio.mp3"></audio>
+
     </div>
 
     <!-- GAME SCREEN -->
     <div id="game-screen" class="container">
         <div id="game-box">
-        <div id = "timer" class="time-left">Time left 10:00</div>
+            <img src="./images/granero.jpg" alt="Granero" class="granero-image">
+            <div id = "timer" class="time-left">Time left 10:00</div>
         </div>
     </div>
+
+    <audio id="collision-game-over-sound" src="./sounds/gallo-game-over.mp3"></audio>
+        <audio id="juego-sound" src="./sounds/pantalla-juego.mp3"></audio>
+        <audio id="collision-centaleones-sound" src="./sounds/link-ataca.wav"></audio>
+        <audio id="collision-centaleones-sound" src="./sounds/link-ataca.wav"></audio>
+        <audio id="collision-arañas-sound" src="./sounds/link-ataca.2.wav"></audio>
+        <audio id="collision-monstruos-sound" src="./sounds/link-ataca3.wav"></audio>
+        <audio id="victoria-sound" src="./sounds/victoria.mp3"></audio>
+        
 
     <!-- GAME OVER SCREEN -->
     <div id="gameover-screen" class="container">
     <h1>GAME OVER</h1>
-    <p>The power of the chickens has been released and it destroyed Hyrule</p>
+    <p>The power of the chicken has been released and it destroyed Hyrule</p>
     <h2>You saved xx rupees</h2>
     <h3>...for what? You are homeless now</h3>
         <button id="restart-btn-gameover">Play again?</button>
@@ -44,11 +52,12 @@
 
     <!-- YOU WON SCREEN -->
     <div id="youwon-screen" class="container">
+        <div class="youwon-text" >
         <h1>YOU SAVED HYRULE!</h1>
-        <h2>You saved xx rupees</h2>
+        <h2>You won xx rupees</h2>
         <h3>...enough to get the Master Sword and put an end to
-            all the evil from this world</h3>
-        <button id="restart-btn-youwon">Play again?</button>
+            all the evil from this world!</h3>
+        <button id="restart-btn-youwon">Play again?</button></div>
     </div>
 
 

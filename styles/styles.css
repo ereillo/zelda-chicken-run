@@ -59,26 +59,28 @@ body {
     /* background-image: url("../images/trifuerzas4.png"); */
     /* background-color: 
     #153126; */
+    overflow: hidden;
     background-size: cover;
 }
 
-/* .score {
-    display: flex;
-    justify-content: right;
-    margin: 0px;
-
-    background-color: transparent;
-    color: yellow;
-    padding: 40px;
-    font-size: 30px;
-} */
+.granero-image {
+    width: auto;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 245px; 
+  }
 
 #timer {
   position: absolute;
+  padding: 8px 8px;
+  border-radius: 10px;
   top: 10px;
   right: 10px;
   font-size: 20px;
   color: white;
+  background-color: black;
 }
 
 .container {
@@ -90,13 +92,14 @@ body {
     align-items: center;
     margin: 0; /* Eliminar los márgenes para ocupar toda la pantalla */
     padding: 0; /* Eliminar el padding para ocupar toda la pantalla */
-    overflow: hidden; /* Para evitar que haya barras de desplazamiento */
+    overflow: hidden; 
 }
 
   #game-box {
     background-color: darkgray;
     width:900px;
     height:500px;
+    overflow: hidden;
   
     position: relative; /* this will allow elements to be positioned relative to the game-box */
     user-select: none; /* this will prevent elements from being highlighted */
@@ -109,7 +112,7 @@ body {
 
 
   #gameover-screen {
-    position: absolute; /* Establecemos el posicionamiento relativo para el contenedor */
+    /* position: absolute; Establecemos el posicionamiento relativo para el contenedor */
     background-image: url("../images/game-box2.png");
     background-size: cover;
     display: flex;
@@ -123,8 +126,7 @@ body {
     position: relative;
     font-size: 70px;
     font-weight: bold;
-    margin-bottom: 20px;
-    margin-top: -30px;
+    margin-bottom: -3em;
     color: red;
     border-color: black;
     border-radius: 10%;
@@ -135,7 +137,7 @@ body {
     position: relative;
     font-size: 24px;
     margin-bottom: 20px;
-    margin-top:28%;
+    margin-top:9em;
   }
   
   #gameover-screen h2 {
@@ -143,7 +145,7 @@ body {
     position: relative;
     font-size: 18px;
     margin-bottom: 10px;
-    top: 33%;
+    top: 10%;
   }
 
   #gameover-screen h3 {
@@ -160,9 +162,10 @@ body {
     font-size: 24px;
     padding: 10px 20px;
     background-color: blanchedalmond;
-    color: blue;
+    color: #a27026;
     border-radius: 10px;
     cursor: pointer;
+    font-family: "ButtonTipo"
     /* top: 20%; */
   }
 
@@ -173,38 +176,50 @@ body {
     /* background-color: 
     #153126; */
     background-size: cover;
+    display: block; /* un único bloque inamobible*/
   }
 
-  /* #youwon-screen h1 {
-    position: relative;
+  
+  div.youwon-text {
+    display: block;
+    padding: 0 auto;
+    text-align: center;
+    padding-top: -5em;
+    margin-top: 8em;
+  }
+   #youwon-screen h1 {
     font-size: 70px;
     font-weight: bold;
     margin-bottom: 20px;
-    top: 20%;
-    color: yellow;
+    color: #dec153;
     border-color: black;
     border-radius: 10%;
-  } */
-
+  }
+  
   #youwon-screen h2 {
-    position: relative;
-    font-size: 18px;
+    font-size: 40px;
     margin-bottom: 10px;
-    top: 50%;
+    color: #a27026;
   }
 
+  #youwon-screen h3 {
+    font-size: 30px;
+    color: #a27026;
+  }
+  
   #restart-btn-youwon {
     font-size: 24px;
     padding: 10px 20px;
     background-color: blanchedalmond;
-    color: blue;
+    color: #a27026;
     border-radius: 10px;
     cursor: pointer;
-    top: 30%;
+    margin: 0;
+    font-family: "ButtonTipo"
   }
 
 
   
-#game-screen, #gameover-screen, #youwon-screen {
+#gameover-screen, #youwon-screen {
     display: none;
-  } 
+  }  

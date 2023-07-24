@@ -35,6 +35,8 @@ class Game {
     this.isGameOn = false;
     gameScreenNode.style.display = "none"; //ocultar la pantalla de juego
     gameoverScreenNode.style.display = "flex"; //mostrar la pantalla final
+    const gameOverSound = document.getElementById("collision-game-over-sound");
+        gameOverSound.play();
   };
 
   centaleonesAparecen = () => {
@@ -77,7 +79,8 @@ class Game {
         this.link.y < cadaCentaleon.y + cadaCentaleon.h &&
         this.link.y + this.link.h > cadaCentaleon.y
       ) {
-        //al notar la colisión...
+        const collisionSound = document.getElementById("collision-centaleones-sound");
+        collisionSound.play();
         this.centaleonArr.splice(index, 1);
         gameBoxNode.removeChild(cadaCentaleon.node);
       }
@@ -124,6 +127,8 @@ class Game {
         this.link.y < cadaAraña.y + cadaAraña.h &&
         this.link.y + this.link.h > cadaAraña.y
       ) {
+        const collisionSound = document.getElementById("collision-arañas-sound");
+        collisionSound.play();
         //al notar la colisión...
         this.arañasArr.splice(index, 1);
         gameBoxNode.removeChild(cadaAraña.node);
@@ -174,6 +179,8 @@ class Game {
         this.link.y < cadaMonstruo.y + cadaMonstruo.h &&
         this.link.y + this.link.h > cadaMonstruo.y
       ) {
+        const collisionSound = document.getElementById("collision-monstruos-sound");
+        collisionSound.play();
         //al notar la colisión...
         this.monstruosArr.splice(index, 1);
         gameBoxNode.removeChild(cadaMonstruo.node);

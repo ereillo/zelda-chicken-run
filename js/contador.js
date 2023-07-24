@@ -1,6 +1,6 @@
 function countdown() {
     const scoreElement = document.getElementById("timer");
-    let seconds = 15;
+    let seconds = 60;
   
     function updateScore() {
       scoreElement.textContent = `Time left: ${Math.floor(
@@ -20,6 +20,8 @@ function countdown() {
         gameObj.youWon();
         gameScreenNode.style.display = "none";
         youwonScreenNode.style.display = "flex";
+        const victorySound = document.getElementById("victoria-sound");
+        victorySound.play();
       }
     }, 1000);
   }
