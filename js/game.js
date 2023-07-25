@@ -15,6 +15,11 @@ class Game {
     this.pollos2 = new Pollos(); //pasar un valor a cada uno entre parentesis y eso va a ser su posición y inicial
     this.pollos3 = new Pollos();
 
+    this.rupias = new Rupias;
+    this.rupiasArr = []
+
+    this.rupiasCollected = 0;
+
     this.frames = 0;
     this.isGameOn = true;
 
@@ -32,12 +37,58 @@ class Game {
   };
 
   gameOver = () => {
+    deleteCountdown()
     this.isGameOn = false;
     gameScreenNode.style.display = "none"; //ocultar la pantalla de juego
     gameoverScreenNode.style.display = "flex"; //mostrar la pantalla final
     const gameOverSound = document.getElementById("collision-game-over-sound");
-        gameOverSound.play();
+        // gameOverSound.play();
   };
+
+  rupiasAparecen = () => {
+    if (this.rupiasArr.length === 0 || this.frames % 150 === 0) {
+      let nuevaRupia = new Rupias();
+      this.rupiasArr.push(nuevaRupia);
+    }
+    this.randomNumber = Math.floor(
+      Math.random() * (this.max - this.min) + this.min
+    );
+  };
+
+  rupiasDesaparecen = () => {
+    setTimeout(() => {
+      if (this.rupiasArr.length > 2) {
+        const primeraRupia = this.rupiasArr[0];
+        primeraRupia.node.remove();
+        this.rupiasArr.shift();
+      }
+    }, 4000); // Desaparecer la primera rupia después de 4 segundos
+  };
+
+  collisionRupiasLink = () => {
+    const collisionSounds = document.getElementById("rupia-sound");
+    this.rupiasArr.forEach((cadaRupia, index) => {
+      if (
+        this.link.x < cadaRupia.x + cadaRupia.w &&
+        this.link.x + this.link.w > cadaRupia.x &&
+        this.link.y < cadaRupia.y + cadaRupia.h &&
+        this.link.y + this.link.h > cadaRupia.y
+      ) {
+        if (cadaRupia.node) {
+          gameBoxNode.removeChild(cadaRupia.node);
+        }
+        this.rupiasArr.splice(index, 1);
+  
+        this.rupiasCollected++;
+  
+        // Actualizar el marcador de rupias
+        const rupiasCounterElement = document.getElementById("rupees");
+        rupiasCounterElement.textContent = `Rupees: ${this.rupiasCollected}`;
+        
+      }
+    });
+  };
+  
 
   centaleonesAparecen = () => {
     if (
@@ -220,6 +271,10 @@ class Game {
     });
     this.collisionMonstruosPollos();
     this.collisionMonstruosLink();
+
+    this.rupiasAparecen();
+    this.rupiasDesaparecen();
+    this.collisionRupiasLink();
 
     if (this.isGameOn === true) {
       requestAnimationFrame(this.gameLoop);

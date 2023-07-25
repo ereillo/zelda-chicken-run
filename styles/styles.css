@@ -54,6 +54,11 @@ body {
   font-family: "ButtonTipo"
 }
 
+#start-btn {
+    width: 400px;
+    cursor: pointer;
+}
+
 #game-screen {
     background-image: url("../images/game-box2.png");
     /* background-image: url("../images/trifuerzas4.png"); */
@@ -72,7 +77,7 @@ body {
     width: 245px; 
   }
 
-#timer {
+#rupees {
   position: absolute;
   padding: 8px 8px;
   border-radius: 10px;
@@ -126,8 +131,8 @@ body {
     position: relative;
     font-size: 70px;
     font-weight: bold;
-    margin-bottom: -3em;
-    color: red;
+    margin-bottom: -2em;
+    color: #d11725;
     border-color: black;
     border-radius: 10%;
   }
@@ -136,8 +141,8 @@ body {
     display: flex;
     position: relative;
     font-size: 24px;
-    margin-bottom: 20px;
-    margin-top:9em;
+    margin-top:11em;
+    color: #a27026;
   }
   
   #gameover-screen h2 {
@@ -145,7 +150,10 @@ body {
     position: relative;
     font-size: 18px;
     margin-bottom: 10px;
-    top: 10%;
+    top: 15%;
+    text-align: center;
+    color: #a27026;
+    font-size: 40px;
   }
 
   #gameover-screen h3 {
@@ -154,6 +162,8 @@ body {
     font-size: 18px;
     margin-bottom: 10px;
     top: 36%;
+    color: #a27026;
+    font-size: 30px;
   }
   
   #restart-btn-gameover {
@@ -185,8 +195,8 @@ body {
     padding: 0 auto;
     text-align: center;
     padding-top: -5em;
-    margin-top: 8em;
   }
+
    #youwon-screen h1 {
     font-size: 70px;
     font-weight: bold;
@@ -219,7 +229,18 @@ body {
   }
 
 
+/* .confeti-gift {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100vw; 
+    height: 100vh; 
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    z-index: 9999; 
+  } */
+
   
-#gameover-screen, #youwon-screen {
+ #game-screen, #youwon-screen, #gameover-screen {
     display: none;
-  }  
+  }   

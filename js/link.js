@@ -17,7 +17,7 @@ class Link {
     this.node.style.top = `${this.y}px`; //posición inicial vertical
     this.node.style.left = `${this.x}px`; //posición inicial horizontal
 
-    this.linkMovement = 12;
+    this.linkMovement = 15;
   }
 
   //aquí los métodos de link (métodos se crean con funciones de flecha)

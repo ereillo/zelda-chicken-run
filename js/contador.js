@@ -1,6 +1,8 @@
+let intervalId; 
+
 function countdown() {
     const scoreElement = document.getElementById("timer");
-    let seconds = 60;
+    let seconds = 100;
   
     function updateScore() {
       scoreElement.textContent = `Time left: ${Math.floor(
@@ -8,7 +10,7 @@ function countdown() {
       )}:${(seconds % 60).toString().padStart(2, "0")}`;
     }
   
-    const intervalId = setInterval(() => {
+     intervalId = setInterval(() => {
       seconds--;
       updateScore();
   
@@ -20,8 +22,13 @@ function countdown() {
         gameObj.youWon();
         gameScreenNode.style.display = "none";
         youwonScreenNode.style.display = "flex";
-        const victorySound = document.getElementById("victoria-sound");
-        victorySound.play();
       }
-    }, 1000);
+    }, 2000);
   }
+
+function deleteCountdown() {
+    clearInterval (intervalId)
+}
+
+
+
