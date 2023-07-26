@@ -15,10 +15,12 @@ class Game {
     this.pollos2 = new Pollos(); //pasar un valor a cada uno entre parentesis y eso va a ser su posición y inicial
     this.pollos3 = new Pollos();
 
-    this.rupias = new Rupias;
-    this.rupiasArr = []
+    // this.rupias = new Rupias;
+    this.rupiasArr = [];
 
     this.rupiasCollected = 0;
+
+    this.vidasCollected = 3;
 
     this.frames = 0;
     this.isGameOn = true;
@@ -37,12 +39,13 @@ class Game {
   };
 
   gameOver = () => {
-    deleteCountdown()
+    this.vidasCollected = 0;
+    // deleteCountdown()
     this.isGameOn = false;
     gameScreenNode.style.display = "none"; //ocultar la pantalla de juego
     gameoverScreenNode.style.display = "flex"; //mostrar la pantalla final
     const gameOverSound = document.getElementById("collision-game-over-sound");
-        // gameOverSound.play();
+    // gameOverSound.play();
   };
 
   rupiasAparecen = () => {
@@ -50,9 +53,6 @@ class Game {
       let nuevaRupia = new Rupias();
       this.rupiasArr.push(nuevaRupia);
     }
-    this.randomNumber = Math.floor(
-      Math.random() * (this.max - this.min) + this.min
-    );
   };
 
   rupiasDesaparecen = () => {
@@ -66,29 +66,31 @@ class Game {
   };
 
   collisionRupiasLink = () => {
+    let overlap = 5;
     const collisionSounds = document.getElementById("rupia-sound");
     this.rupiasArr.forEach((cadaRupia, index) => {
       if (
-        this.link.x < cadaRupia.x + cadaRupia.w &&
-        this.link.x + this.link.w > cadaRupia.x &&
-        this.link.y < cadaRupia.y + cadaRupia.h &&
-        this.link.y + this.link.h > cadaRupia.y
+        this.link.x - overlap < cadaRupia.x + cadaRupia.w &&
+        this.link.x - overlap + this.link.w - overlap > cadaRupia.x &&
+        this.link.y - overlap < cadaRupia.y + cadaRupia.h &&
+        this.link.y - overlap + this.link.h - overlap > cadaRupia.y
       ) {
         if (cadaRupia.node) {
           gameBoxNode.removeChild(cadaRupia.node);
         }
         this.rupiasArr.splice(index, 1);
-  
+
         this.rupiasCollected++;
-  
-        // Actualizar el marcador de rupias
         const rupiasCounterElement = document.getElementById("rupees");
         rupiasCounterElement.textContent = `Rupees: ${this.rupiasCollected}`;
-        
+
+        if (this.rupiasCollected === 20) {
+          // Detener el juego y mostrar la pantalla de "YOU SAVED HYRULE!"
+          this.youWon();
+        }
       }
     });
   };
-  
 
   centaleonesAparecen = () => {
     if (
@@ -109,28 +111,45 @@ class Game {
   };
 
   collisionCentaleonesPollos = () => {
-    this.centaleonArr.forEach((cadaCentaleon) => {
+    this.centaleonArr.forEach((cadaCentaleon, index) => {
       if (
         this.pollos.x < cadaCentaleon.x + cadaCentaleon.w &&
         this.pollos.x + this.pollos.w > cadaCentaleon.x &&
         this.pollos.y < cadaCentaleon.y + cadaCentaleon.h &&
         this.pollos.y + this.pollos.h > cadaCentaleon.y
       ) {
-        // Collision detected!
-        this.gameOver();
+        console.log("Colisión entre pollos y centaleones detectada!");
+  
+        // Reducir una vida
+        this.vidasCollected--;
+        const vidasCounterElement = document.querySelector("#vidas");
+        vidasCounterElement.textContent = `Vidas: ${this.vidasCollected}`;
+        
+        // Verificar si se han agotado las vidas
+        if (this.vidasCollected <= 0) {
+          this.gameOver();
+        }
+  
+        // Eliminar el centaleón del array
+        this.centaleonArr.splice(index, 1);
+        gameBoxNode.removeChild(cadaCentaleon.node);
       }
     });
   };
+  
 
   collisionCentaleonesLink = () => {
+    let overlap = 8;
     this.centaleonArr.forEach((cadaCentaleon, index) => {
       if (
-        this.link.x < cadaCentaleon.x + cadaCentaleon.w &&
-        this.link.x + this.link.w > cadaCentaleon.x &&
-        this.link.y < cadaCentaleon.y + cadaCentaleon.h &&
-        this.link.y + this.link.h > cadaCentaleon.y
+        this.link.x - overlap < cadaCentaleon.x + cadaCentaleon.w &&
+        this.link.x - overlap + this.link.w > cadaCentaleon.x &&
+        this.link.y - overlap < cadaCentaleon.y + cadaCentaleon.h &&
+        this.link.y - overlap + this.link.h - overlap > cadaCentaleon.y
       ) {
-        const collisionSound = document.getElementById("collision-centaleones-sound");
+        const collisionSound = document.getElementById(
+          "collision-centaleones-sound"
+        );
         collisionSound.play();
         this.centaleonArr.splice(index, 1);
         gameBoxNode.removeChild(cadaCentaleon.node);
@@ -157,28 +176,42 @@ class Game {
   };
 
   collisionArañasPollos = () => {
-    this.arañasArr.forEach((cadaAraña) => {
+    this.arañasArr.forEach((cadaAraña, index) => {
       if (
         this.pollos.x < cadaAraña.x + cadaAraña.w &&
         this.pollos.x + this.pollos.w > cadaAraña.x &&
         this.pollos.y < cadaAraña.y + cadaAraña.h &&
         this.pollos.y + this.pollos.h > cadaAraña.y
       ) {
-        // Collision detected!
-        this.gameOver();
+        // Reducir una vida
+        this.vidasCollected--;
+        const vidasCounterElement = document.querySelector("#vidas");
+        vidasCounterElement.textContent = `Vidas: ${this.vidasCollected}`;
+        
+        // Verificar si se han agotado las vidas
+        if (this.vidasCollected <= 0) {
+          this.gameOver();
+        }
+  
+        // Eliminar el centaleón del array
+        this.arañasArr.splice(index, 1);
+        gameBoxNode.removeChild(cadaAraña.node);
       }
     });
   };
 
   collisionArañasLink = () => {
+    let overlap = 8;
     this.arañasArr.forEach((cadaAraña, index) => {
       if (
-        this.link.x < cadaAraña.x + cadaAraña.w &&
-        this.link.x + this.link.w > cadaAraña.x &&
-        this.link.y < cadaAraña.y + cadaAraña.h &&
-        this.link.y + this.link.h > cadaAraña.y
+        this.link.x - overlap < cadaAraña.x + cadaAraña.w &&
+        this.link.x - overlap + this.link.w - overlap > cadaAraña.x &&
+        this.link.y - overlap < cadaAraña.y + cadaAraña.h &&
+        this.link.y - overlap + this.link.h - overlap > cadaAraña.y
       ) {
-        const collisionSound = document.getElementById("collision-arañas-sound");
+        const collisionSound = document.getElementById(
+          "collision-arañas-sound"
+        );
         collisionSound.play();
         //al notar la colisión...
         this.arañasArr.splice(index, 1);
@@ -209,28 +242,45 @@ class Game {
   };
 
   collisionMonstruosPollos = () => {
-    this.monstruosArr.forEach((cadaMonstruo) => {
+    let overlap = 2
+    this.monstruosArr.forEach((cadaMonstruo, index) => {
       if (
-        this.pollos.x < cadaMonstruo.x + cadaMonstruo.w &&
-        this.pollos.x + this.pollos.w > cadaMonstruo.x &&
-        this.pollos.y < cadaMonstruo.y + cadaMonstruo.h &&
-        this.pollos.y + this.pollos.h > cadaMonstruo.y
+        this.pollos.x + overlap < cadaMonstruo.x + cadaMonstruo.w &&
+        this.pollos.x + overlap + this.pollos.w + overlap > cadaMonstruo.x &&
+        this.pollos.y + overlap < cadaMonstruo.y + cadaMonstruo.h &&
+        this.pollos.y + overlap + this.pollos.h + overlap  > cadaMonstruo.y
       ) {
-        // Collision detected!
-        this.gameOver();
+        // Aquí se ha detectado la colisión con un monstruo
+        this.vidasCollected--;
+        const vidasCounterElement = document.querySelector("#vidas");
+        vidasCounterElement.textContent = `Vidas: ${this.vidasCollected}`;
+        
+        // Verificar si se han agotado las vidas
+        if (this.vidasCollected <= 0) {
+          this.gameOver();
+        }
+  
+        // Eliminar el monstruo del array
+        this.monstruosArr.splice(index, 1);
+        gameBoxNode.removeChild(cadaMonstruo.node);
       }
     });
   };
+  
+
 
   collisionMonstruosLink = () => {
+    let overlap = 13;
     this.monstruosArr.forEach((cadaMonstruo, index) => {
       if (
-        this.link.x < cadaMonstruo.x + cadaMonstruo.w &&
-        this.link.x + this.link.w > cadaMonstruo.x &&
-        this.link.y < cadaMonstruo.y + cadaMonstruo.h &&
-        this.link.y + this.link.h > cadaMonstruo.y
+        this.link.x - overlap < cadaMonstruo.x + cadaMonstruo.w &&
+        this.link.x - overlap + this.link.w - overlap > cadaMonstruo.x &&
+        this.link.y - overlap < cadaMonstruo.y + cadaMonstruo.h &&
+        this.link.y - overlap + this.link.h - overlap > cadaMonstruo.y
       ) {
-        const collisionSound = document.getElementById("collision-monstruos-sound");
+        const collisionSound = document.getElementById(
+          "collision-monstruos-sound"
+        );
         collisionSound.play();
         //al notar la colisión...
         this.monstruosArr.splice(index, 1);

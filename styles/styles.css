@@ -1,81 +1,84 @@
 body {
-    margin: 0;
-    background-color: rgb(255, 255, 255);
-    width: 100%;
+  margin: 0;
+  background-color: rgb(255, 255, 255);
+  width: 100%;
 }
 
 /* Transición para ocultar el splash-screen */
 .fade-out {
-    opacity: 0;
-    transition: opacity 1s ease-out;
-  }
+  opacity: 0;
+  transition: opacity 1s ease-out;
+}
 
-#splash-screen{
-    position: relative; 
-    height: 100vh;
-    background-image: url("../images/splash-screen3.png");
-    background-size: cover;
+#splash-screen {
+  position: relative;
+  height: 100vh;
+  background-image: url("../images/splash-screen3.png");
+  background-size: cover;
 }
 
 @font-face {
-    font-family: "ButtonTipo"; 
-    src: url("../images/tipo2.ttf") format("truetype"); /* Ruta de la tipografía y formato */
-  }
-
-#splash-screen h1 {
-    position: absolute; 
-    top: 5%; 
-    right: -3%; 
-    width: 40%;
-    padding: 10%;
-    color: #a27026; 
-    font-size: 33px; 
-  }
-
-#splash-screen p {
-    position: absolute; 
-    top: 20%; 
-    right: -3%;
-    width: 40%;
-    padding: 10%;
-    color: #a27026; 
-    font-size: 33px; 
-    
+  font-family: "ButtonTipo";
+  src: url("../images/tipo2.ttf") format("truetype"); /* Ruta de la tipografía y formato */
 }
 
+#splash-screen h1 {
+  position: absolute;
+  top: 5%;
+  right: -3%;
+  width: 40%;
+  padding: 10%;
+  color: #a27026;
+  font-size: 33px;
+}
 
-#start-btn, #restart-btn-gameover, #restart-btn-youwon {
-    background-color :#dce7f8;
-    color:#dec153;
-    padding: 10px;
+#splash-screen p {
+  position: absolute;
+  top: 20%;
+  right: -3%;
+  width: 40%;
+  padding: 10%;
+  color: #a27026;
+  font-size: 33px;
+}
+
+#start-btn,
+#restart-btn-gameover,
+#restart-btn-youwon {
+  background-color: #dce7f8;
+  color: #dec153;
+  padding: 10px;
   font-size: 30px;
   margin-top: 400px;
-  border-radius: 100px; 
-  font-family: "ButtonTipo"
+  border-radius: 100px;
+  font-family: "ButtonTipo";
 }
 
 #start-btn {
-    width: 400px;
-    cursor: pointer;
+  width: 400px !important;
+  cursor: pointer;
 }
 
 #game-screen {
-    background-image: url("../images/game-box2.png");
-    /* background-image: url("../images/trifuerzas4.png"); */
-    /* background-color: 
+  background-image: url("../images/game-box2.png");
+  /* background-image: url("../images/trifuerzas4.png"); */
+  /* background-color: 
     #153126; */
-    overflow: hidden;
-    background-size: cover;
+  overflow: hidden;
+  background-size: cover;
 }
 
 .granero-image {
-    width: auto;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 245px; 
-  }
+  width: auto;
+  border-radius: 10%;
+  border-right: 30px;
+  border-right-color: #a27026;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 245px;
+}
 
 #rupees {
   position: absolute;
@@ -88,146 +91,166 @@ body {
   background-color: black;
 }
 
-.container {
-    display: flex;
-    width: 100%; 
-    height: 100vh; /* Ajustar la altura para ocupar toda la pantalla */
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin: 0; /* Eliminar los márgenes para ocupar toda la pantalla */
-    padding: 0; /* Eliminar el padding para ocupar toda la pantalla */
-    overflow: hidden; 
+#vidas {
+  position: absolute;
+  padding: 8px 8px;
+  border-radius: 10px;
+  top: 10px;
+  right: 120px;
+  font-size: 20px;
+  color: red;
+  background-color: white;
 }
 
-  #game-box {
-    background-color: darkgray;
-    width:900px;
-    height:500px;
-    overflow: hidden;
-  
-    position: relative; /* this will allow elements to be positioned relative to the game-box */
-    user-select: none; /* this will prevent elements from being highlighted */
-  
-    background-image: url("../images/game-box.jpg");
-    background-position: center;
-    background-size: cover;
-  
-  }
+#timer {
+  position: absolute;
+  padding: 8px 8px;
+  border-radius: 10px;
+  top: 10px;
+  right: 300px;
+  font-size: 20px;
+  color: yellow;
+  background-color: black;
+}
 
+.container {
+  display: flex;
+  width: 100%;
+  height: 100vh; /* Ajustar la altura para ocupar toda la pantalla */
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 0; /* Eliminar los márgenes para ocupar toda la pantalla */
+  padding: 0; /* Eliminar el padding para ocupar toda la pantalla */
+  overflow: hidden;
+}
 
-  #gameover-screen {
-    /* position: absolute; Establecemos el posicionamiento relativo para el contenedor */
-    background-image: url("../images/game-box2.png");
-    background-size: cover;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-  }
+#game-box {
+  background-color: darkgray;
+  width: 900px;
+  height: 500px;
+  overflow: hidden;
 
-  #gameover-screen h1 {
-    position: relative;
-    font-size: 70px;
-    font-weight: bold;
-    margin-bottom: -2em;
-    color: #d11725;
-    border-color: black;
-    border-radius: 10%;
-  }
-  
-  #gameover-screen p {
-    display: flex;
-    position: relative;
-    font-size: 24px;
-    margin-top:11em;
-    color: #a27026;
-  }
-  
-  #gameover-screen h2 {
-    display: flex;
-    position: relative;
-    font-size: 18px;
-    margin-bottom: 10px;
-    top: 15%;
-    text-align: center;
-    color: #a27026;
-    font-size: 40px;
-  }
+  position: relative; /* this will allow elements to be positioned relative to the game-box */
+  user-select: none; /* this will prevent elements from being highlighted */
 
-  #gameover-screen h3 {
-    display: flex;
-    position: relative;
-    font-size: 18px;
-    margin-bottom: 10px;
-    top: 36%;
-    color: #a27026;
-    font-size: 30px;
-  }
-  
-  #restart-btn-gameover {
-    display: flex;
-    margin-top: -100px;
-    font-size: 24px;
-    padding: 10px 20px;
-    background-color: blanchedalmond;
-    color: #a27026;
-    border-radius: 10px;
-    cursor: pointer;
-    font-family: "ButtonTipo"
-    /* top: 20%; */
-  }
+  background-image: url("../images/game-box.jpg");
+  background-position: center;
+  background-size: cover;
+}
 
+#gameover-screen {
+  /* position: absolute; Establecemos el posicionamiento relativo para el contenedor */
+  background-image: url("../images/game-box2.png");
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
 
-  #youwon-screen {
-    background-image: url("../images/game-box2.png");
-    /* background-image: url("../images/trifuerzas4.png"); */
-    /* background-color: 
+#gameover-screen h1 {
+  position: relative;
+  font-size: 70px;
+  font-weight: bold;
+  margin-bottom: 3em;
+  color: #d11725;
+  border-color: black;
+  border-radius: 10%;
+}
+#gameover-screen p {
+  display: flex;
+  position: relative;
+  font-size: 24px;
+  margin-top: 11em;
+  color: #a27026;
+}
+
+#gameover-screen h2 {
+  display: flex;
+  position: relative;
+  font-size: 18px;
+  margin-bottom: 10px;
+  top: -90px;
+  text-align: center;
+  color: #a27026;
+  font-size: 40px;
+}
+
+#gameover-screen h3 {
+  display: flex;
+  position: relative;
+  font-size: 18px;
+  margin-bottom: 10px;
+  top: 36%;
+  color: #a27026;
+  font-size: 30px;
+}
+
+#restart-btn-gameover {
+  display: flex;
+  margin-top: -100px;
+  font-size: 24px;
+  padding: 10px 20px;
+  background-color: blanchedalmond;
+  color: #a27026;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: "ButtonTipo";
+  /* top: 20%; */
+}
+
+#youwon-screen {
+  background-image: url("../images/game-box2.png");
+  /* background-image: url("../images/trifuerzas4.png"); */
+  /* background-color: 
     #153126; */
-    background-size: cover;
-    display: block; /* un único bloque inamobible*/
-  }
+  background-size: cover;
+  display: block; /* un único bloque inamobible*/
+}
 
-  
-  div.youwon-text {
-    display: block;
-    padding: 0 auto;
-    text-align: center;
-    padding-top: -5em;
-  }
+div.youwon-text {
+  display: block;
+  padding: 0 auto;
+  text-align: center;
+  padding-top: -5em;
+}
 
-   #youwon-screen h1 {
-    font-size: 70px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: #dec153;
-    border-color: black;
-    border-radius: 10%;
-  }
-  
-  #youwon-screen h2 {
-    font-size: 40px;
-    margin-bottom: 10px;
-    color: #a27026;
-  }
+#youwon-screen h1 {
+  font-size: 70px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #dec153;
+  border-color: black;
+  border-radius: 10%;
+}
 
-  #youwon-screen h3 {
-    font-size: 30px;
-    color: #a27026;
-  }
-  
-  #restart-btn-youwon {
-    font-size: 24px;
-    padding: 10px 20px;
-    background-color: blanchedalmond;
-    color: #a27026;
-    border-radius: 10px;
-    cursor: pointer;
-    margin: 0;
-    font-family: "ButtonTipo"
-  }
+#youwon-screen h2 {
+  font-size: 40px;
+  margin-bottom: 10px;
+  color: #a27026;
+}
 
+#youwon-screen h3 {
+  font-size: 30px;
+  color: #a27026;
+}
+
+/* .master-sword-image{
+size: 400px;
+}    */
+
+#restart-btn-youwon {
+  font-size: 24px;
+  padding: 10px 20px;
+  background-color: blanchedalmond;
+  color: #a27026;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 0;
+  font-family: "ButtonTipo";
+}
 
 /* .confeti-gift {
     position: fixed; 
@@ -240,7 +263,6 @@ body {
     z-index: 9999; 
   } */
 
-  
- #game-screen, #youwon-screen, #gameover-screen {
+#game-screen, #youwon-screen, #gameover-screen {
     display: none;
   }   

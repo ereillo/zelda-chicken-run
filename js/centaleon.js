@@ -21,7 +21,7 @@ this.node.style.left = `${this.x}px`;
 }
     
 automaticMovement = () => {
-  this.x -= 0.1;
+  this.x -= 1;
   this.positionUpdate();
 }
 

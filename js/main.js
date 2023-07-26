@@ -31,22 +31,24 @@ function startGame() {
 
 function restartGame() {
   splashScreenNode.classList.add("fade-out");
-
-  gameBoxNode.innerHTML = `
-  <div id="game-box">
-      <img src="./images/granero.jpg" alt="Granero" class="granero-image">
-      <div id = "timer" class="time-left">Time left 10:00</div>
-  </div>`
-
-  gameScreenNode.style.display = "flex"; //PARA REINICIAR EL JUEGO
-  gameoverScreenNode.style.display = "none";
-
-  // Iniciar el juego
-  gameObj = new Game();
-  gameObj.gameLoop();
-  countdown();
-    // gameSound.play();
-  // }, 1000);
+setTimeout(function () {
+    gameBoxNode.innerHTML = `
+    <div id="game-box">
+        <img src="./images/granero.jpg" alt="Granero" class="granero-image">
+        <div id = "timer" class="time-left">Time left 10:00</div>
+        <div id = "rupees"class="rupees-counter">Rupees: 0</div>
+        <div id = "vidas" class="vidas-container">Vidas restantes: 3</div>
+    </div>`
+    gameScreenNode.style.display = "flex"; //PARA REINICIAR EL JUEGO
+    gameoverScreenNode.style.display = "none";
+    youwonScreenNode.style.display = "none";
+  
+    // Iniciar el juego
+    gameObj = new Game();
+    gameObj.gameLoop();
+    countdown();
+      // gameSound.play();
+    }, 1000);
 }
 
 // * ADD EVENT LISTENERS

@@ -2,7 +2,7 @@ let intervalId;
 
 function countdown() {
     const scoreElement = document.getElementById("timer");
-    let seconds = 100;
+    let seconds = 30;
   
     function updateScore() {
       scoreElement.textContent = `Time left: ${Math.floor(
