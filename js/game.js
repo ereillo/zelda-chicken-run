@@ -14,6 +14,7 @@ class Game {
     this.pollos = new Pollos();
     this.pollos2 = new Pollos(); 
     this.pollos3 = new Pollos();
+    // this.pollosArr = []
 
     // this.rupias = new Rupias;
     this.rupiasArr = [];
@@ -31,6 +32,13 @@ class Game {
       Math.random() * (this.max - this.min) + this.min
     );
   }
+
+//   pollosAparecen = () => {
+//     let numPollos = 3;
+//     if (this.pollosArr.length < numPollos) {
+//       this.pollosArr.push(new Pollos());
+//     }
+//   };
 
   youWon = () => {
     this.isGameOn = false;
@@ -78,19 +86,22 @@ class Game {
         const rupiasCounterElement = document.getElementById("rupees");
         const rupeesCollisionSound = document.getElementById("collision-rupees-sound");
         const youWonSound = document.getElementById("victoria-sound")
+        const bluerupeesCollisionSound = document.getElementById("collision-blue-rupees-sound")
 
         console.log(cadaRupia.addOnePoint); //estoy accediendo a la propiedad "addOnePoint" de cadaRupia
         if (cadaRupia.addOnePoint === true) {
           this.rupiasCollected += 1;
+          rupeesCollisionSound.play();
         } else {
           this.rupiasCollected += 5;
+          bluerupeesCollisionSound.play();
         }
         rupiasCounterElement.textContent = `Rupees: ${this.rupiasCollected}`;
 
         gameBoxNode.removeChild(cadaRupia.node);
         this.rupiasArr.splice(index, 1);
 
-        rupeesCollisionSound.play();
+        // rupeesCollisionSound.play();
 
         if (this.rupiasCollected >= 30) {
           this.youWon();
@@ -107,9 +118,9 @@ class Game {
       this.frames % this.randomNumber === 0
     ) {
       if (this.rupiasCollected >= 20) {
-        nuevoCentaleon = new Centaleon(2.7);
+        nuevoCentaleon = new Centaleon(2.4);
       } else {
-        nuevoCentaleon = new Centaleon(1.7);
+        nuevoCentaleon = new Centaleon(1.6);
       }
       this.centaleonArr.push(nuevoCentaleon);
     }
@@ -240,7 +251,7 @@ class Game {
 
     if (this.arañasArr.length === 0 || this.frames % this.randomNumber === 0) {
       if (this.rupiasCollected >= 20) {
-        nuevoArañas = new Arañas(1.4); // Crear un nuevo objeto Arañas con velocidad 1.4
+        nuevoArañas = new Arañas(1.3); // Crear un nuevo objeto Arañas con velocidad 1.4
       } else {
         nuevoArañas = new Arañas(0.8); // Crear un nuevo objeto Arañas con velocidad 0.8
       }
@@ -367,9 +378,9 @@ class Game {
       this.frames % this.randomNumber === 0
     ) {
       if (this.rupiasCollected >= 20) {
-        nuevoMonstruos = new Monstruos(2); // Crear un nuevo objeto Monstruos con velocidad 2
+        nuevoMonstruos = new Monstruos(1.8); // Crear un nuevo objeto Monstruos con velocidad 2
       } else {
-        nuevoMonstruos = new Monstruos(1.3); // Crear un nuevo objeto Monstruos con velocidad 1.3
+        nuevoMonstruos = new Monstruos(1.2); // Crear un nuevo objeto Monstruos con velocidad 1.3
       }
 
       this.monstruosArr.push(nuevoMonstruos); // Agregar el nuevo objeto al arreglo monstruosArr
@@ -508,6 +519,8 @@ class Game {
     this.pollos.move();
     this.pollos2.move();
     this.pollos3.move();
+
+    // this.pollosAparecen();
 
     // this.centaleon.automaticMovement();
     this.centaleonesAparecen();

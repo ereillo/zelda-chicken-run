@@ -256,6 +256,17 @@ size: 400px;
   font-family: "ButtonTipo";
 }
 
+#go-crazy-btn {
+    font-size: 24px;
+  padding: 10px 20px;
+  background-color: rgb(0, 0, 0);
+  color: #770d0d;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 0;
+  font-family: "ButtonTipo";
+}
+
 /* .confeti-gift {
     position: fixed; 
     top: 0;
@@ -267,6 +278,6 @@ size: 400px;
     z-index: 9999; 
   } */
 
-#game-screen, #youwon-screen, #gameover-screen {
+#game-screen, #youwon-screen, #gameover-screen, #crazy-gameover-screen, #crazy-game-screen, #crazy-youwon-screen, #crazy-splash-screen {
     display: none;
   }   
