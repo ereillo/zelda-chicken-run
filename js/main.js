@@ -16,6 +16,7 @@ let gameObj = null;
 
 let gameSound = document.querySelector("juego-sound");
 
+
 //STATE MANAGEMENT FUNCTIONS. QUÉ PÁGINA QUIERO QUE SE VEA Y CUÁL NO
 function startGame() {
   splashScreenNode.classList.add("fade-out");
@@ -26,29 +27,30 @@ function startGame() {
     gameObj = new Game();
     gameObj.gameLoop();
   }, 1000);
+  gameSound.play();
   countdown();
 }
 
 function restartGame() {
   splashScreenNode.classList.add("fade-out");
-setTimeout(function () {
+  setTimeout(function () {
     gameBoxNode.innerHTML = `
     <div id="game-box">
         <img src="./images/granero.jpg" alt="Granero" class="granero-image">
         <div id = "timer" class="time-left">Time left 10:00</div>
         <div id = "rupees"class="rupees-counter">Rupees: 0</div>
         <div id = "vidas" class="vidas-container">Vidas restantes: 3</div>
-    </div>`
+    </div>`;
     gameScreenNode.style.display = "flex"; //PARA REINICIAR EL JUEGO
     gameoverScreenNode.style.display = "none";
     youwonScreenNode.style.display = "none";
-  
+
     // Iniciar el juego
     gameObj = new Game();
     gameObj.gameLoop();
     countdown();
-      // gameSound.play();
-    }, 1000);
+    gameSound.play();
+  }, 1000);
 }
 
 // * ADD EVENT LISTENERS

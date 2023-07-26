@@ -12,7 +12,7 @@ class Game {
     this.monstruosArr = [];
 
     this.pollos = new Pollos();
-    this.pollos2 = new Pollos(); //pasar un valor a cada uno entre parentesis y eso va a ser su posición y inicial
+    this.pollos2 = new Pollos(); 
     this.pollos3 = new Pollos();
 
     // this.rupias = new Rupias;
@@ -76,9 +76,8 @@ class Game {
         this.link.y - overlap + this.link.h - overlap > cadaRupia.y
       ) {
         const rupiasCounterElement = document.getElementById("rupees");
-        const rupeesCollisionSound = document.getElementById(
-          "collision-rupees-sound"
-        );
+        const rupeesCollisionSound = document.getElementById("collision-rupees-sound");
+        const youWonSound = document.getElementById("victoria-sound")
 
         console.log(cadaRupia.addOnePoint); //estoy accediendo a la propiedad "addOnePoint" de cadaRupia
         if (cadaRupia.addOnePoint === true) {
@@ -95,6 +94,7 @@ class Game {
 
         if (this.rupiasCollected >= 30) {
           this.youWon();
+          youWonSound.play();
         }
       }
     });
@@ -144,7 +144,7 @@ class Game {
 
         //sonido pollos
         const pollosCollisionSound =
-          document.getElementById("collision-pollos");
+        document.getElementById("collision-pollos");
         pollosCollisionSound.play();
 
         // Eliminar el centaleón del array
@@ -154,12 +154,74 @@ class Game {
     });
   };
 
+//   collisionCentaleonesPollos2 = () => {
+//     this.centaleonArr.forEach((cadaCentaleon, index) => {
+//       if (
+//         this.pollos2.x < cadaCentaleon.x + cadaCentaleon.w &&
+//         this.pollos2.x + this.pollos2.w > cadaCentaleon.x &&
+//         this.pollos2.y < cadaCentaleon.y + cadaCentaleon.h &&
+//         this.pollos2.y + this.pollos2.h > cadaCentaleon.y
+//       ) {
+//         console.log("Colisión entre pollos y centaleones detectada!");
+//         // Reducir una vida
+//         this.vidasCollected--;
+//         const vidasCounterElement = document.querySelector("#vidas");
+//         vidasCounterElement.textContent = `Pollos pacíficos: ${this.vidasCollected}`;
+
+//         // Verificar si se han agotado las vidas
+//         if (this.vidasCollected <= 0) {
+//           this.gameOver();
+//         }
+
+//         //sonido pollos
+//         const pollosCollisionSound =
+//         document.getElementById("collision-pollos");
+//         pollosCollisionSound.play();
+
+//         // Eliminar el centaleón del array
+//         this.centaleonArr.splice(index, 1);
+//         gameBoxNode.removeChild(cadaCentaleon.node);
+//       }
+//     });
+//   };
+
+//   collisionCentaleonesPollos3 = () => {
+//     this.centaleonArr.forEach((cadaCentaleon, index) => {
+//       if (
+//         this.pollos3.x < cadaCentaleon.x + cadaCentaleon.w &&
+//         this.pollos3.x + this.pollos3.w > cadaCentaleon.x &&
+//         this.pollos3.y < cadaCentaleon.y + cadaCentaleon.h &&
+//         this.pollos3.y + this.pollos3.h > cadaCentaleon.y
+//       ) {
+//         console.log("Colisión entre pollos y centaleones detectada!");
+//         // Reducir una vida
+//         this.vidasCollected--;
+//         const vidasCounterElement = document.querySelector("#vidas");
+//         vidasCounterElement.textContent = `Pollos pacíficos: ${this.vidasCollected}`;
+
+//         // Verificar si se han agotado las vidas
+//         if (this.vidasCollected <= 0) {
+//           this.gameOver();
+//         }
+
+//         //sonido pollos
+//         const pollosCollisionSound =
+//         document.getElementById("collision-pollos");
+//         pollosCollisionSound.play();
+
+//         // Eliminar el centaleón del array
+//         this.centaleonArr.splice(index, 1);
+//         gameBoxNode.removeChild(cadaCentaleon.node);
+//       }
+//     });
+//   };
+
   collisionCentaleonesLink = () => {
     let overlap = 8;
     this.centaleonArr.forEach((cadaCentaleon, index) => {
       if (
         this.link.x - overlap < cadaCentaleon.x + cadaCentaleon.w &&
-        this.link.x - overlap + this.link.w > cadaCentaleon.x &&
+        this.link.x - overlap + this.link.w - overlap > cadaCentaleon.x &&
         this.link.y - overlap < cadaCentaleon.y + cadaCentaleon.h &&
         this.link.y - overlap + this.link.h - overlap > cadaCentaleon.y
       ) {
@@ -223,6 +285,60 @@ class Game {
       }
     });
   };
+
+//   collisionArañasPollos2 = () => {
+//     this.arañasArr.forEach((cadaAraña, index) => {
+//       if (
+//         this.pollos2.x < cadaAraña.x + cadaAraña.w &&
+//         this.pollos2.x + this.pollos2.w > cadaAraña.x &&
+//         this.pollos2.y < cadaAraña.y + cadaAraña.h &&
+//         this.pollos2.y + this.pollos2.h > cadaAraña.y
+//       ) {
+//         // Reducir una vida
+//         this.vidasCollected--;
+//         const vidasCounterElement = document.querySelector("#vidas");
+//         vidasCounterElement.textContent = `Pollos pacíficos: ${this.vidasCollected}`;
+//         //sonido pollos
+//         const pollosCollisionSound =
+//           document.getElementById("collision-pollos");
+//         pollosCollisionSound.play();
+//         // Verificar si se han agotado las vidas
+//         if (this.vidasCollected <= 0) {
+//           this.gameOver();
+//         }
+//         // Eliminar el centaleón del array
+//         this.arañasArr.splice(index, 1);
+//         gameBoxNode.removeChild(cadaAraña.node);
+//       }
+//     });
+//   };
+
+//   collisionArañasPollos3 = () => {
+//     this.arañasArr.forEach((cadaAraña, index) => {
+//       if (
+//         this.pollos3.x < cadaAraña.x + cadaAraña.w &&
+//         this.pollos3.x + this.pollos3.w > cadaAraña.x &&
+//         this.pollos3.y < cadaAraña.y + cadaAraña.h &&
+//         this.pollos3.y + this.pollos3.h > cadaAraña.y
+//       ) {
+//         // Reducir una vida
+//         this.vidasCollected--;
+//         const vidasCounterElement = document.querySelector("#vidas");
+//         vidasCounterElement.textContent = `Pollos pacíficos: ${this.vidasCollected}`;
+//         //sonido pollos
+//         const pollosCollisionSound =
+//           document.getElementById("collision-pollos");
+//         pollosCollisionSound.play();
+//         // Verificar si se han agotado las vidas
+//         if (this.vidasCollected <= 0) {
+//           this.gameOver();
+//         }
+//         // Eliminar el centaleón del array
+//         this.arañasArr.splice(index, 1);
+//         gameBoxNode.removeChild(cadaAraña.node);
+//       }
+//     });
+//   };
 
   collisionArañasLink = () => {
     let overlap = 8;
@@ -302,6 +418,68 @@ class Game {
     });
   };
 
+//   collisionMonstruosPollos2 = () => {
+//     let overlap = 2;
+//     this.monstruosArr.forEach((cadaMonstruo, index) => {
+//       if (
+//         this.pollos2.x + overlap < cadaMonstruo.x + cadaMonstruo.w &&
+//         this.pollos2.x + overlap + this.pollos2.w + overlap > cadaMonstruo.x &&
+//         this.pollos2.y + overlap < cadaMonstruo.y + cadaMonstruo.h &&
+//         this.pollos2.y + overlap + this.pollos2.h + overlap > cadaMonstruo.y
+//       ) {
+//         // Aquí se ha detectado la colisión con un monstruo
+//         this.vidasCollected--;
+//         const vidasCounterElement = document.querySelector("#vidas");
+//         vidasCounterElement.textContent = `Pollos pacíficos: ${this.vidasCollected}`;
+
+//         // Verificar si se han agotado las vidas
+//         if (this.vidasCollected <= 0) {
+//           this.gameOver();
+//         }
+
+//         //sonido pollos
+//         const pollosCollisionSound =
+//           document.getElementById("collision-pollos");
+//         pollosCollisionSound.play();
+
+//         // Eliminar el monstruo del array
+//         this.monstruosArr.splice(index, 1);
+//         gameBoxNode.removeChild(cadaMonstruo.node);
+//       }
+//     });
+//   };
+
+//   collisionMonstruosPollos3 = () => {
+//     let overlap = 2;
+//     this.monstruosArr.forEach((cadaMonstruo, index) => {
+//       if (
+//         this.pollos3.x + overlap < cadaMonstruo.x + cadaMonstruo.w &&
+//         this.pollos3.x + overlap + this.pollos3.w + overlap > cadaMonstruo.x &&
+//         this.pollos3.y + overlap < cadaMonstruo.y + cadaMonstruo.h &&
+//         this.pollos3.y + overlap + this.pollos3.h + overlap > cadaMonstruo.y
+//       ) {
+//         // Aquí se ha detectado la colisión con un monstruo
+//         this.vidasCollected--;
+//         const vidasCounterElement = document.querySelector("#vidas");
+//         vidasCounterElement.textContent = `Pollos pacíficos: ${this.vidasCollected}`;
+
+//         // Verificar si se han agotado las vidas
+//         if (this.vidasCollected <= 0) {
+//           this.gameOver();
+//         }
+
+//         //sonido pollos
+//         const pollosCollisionSound =
+//           document.getElementById("collision-pollos");
+//         pollosCollisionSound.play();
+
+//         // Eliminar el monstruo del array
+//         this.monstruosArr.splice(index, 1);
+//         gameBoxNode.removeChild(cadaMonstruo.node);
+//       }
+//     });
+//   };
+
   collisionMonstruosLink = () => {
     const monstOverlap = 35;
     this.monstruosArr.forEach((cadaMonstruo, index) => {
@@ -354,6 +532,7 @@ class Game {
       cadaMonstruo.automaticMovement();
     });
     this.collisionMonstruosPollos();
+    this.collisionMonstruosPollos2();
     this.collisionMonstruosLink();
 
     this.rupiasAparecen();
