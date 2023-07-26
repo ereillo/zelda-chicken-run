@@ -83,7 +83,10 @@ class Game {
         this.rupiasCollected++;
         const rupiasCounterElement = document.getElementById("rupees");
         rupiasCounterElement.textContent = `Rupees: ${this.rupiasCollected}`;
-
+        const rupeesCollisionSound = document.getElementById(
+            "collision-rupees-sound"
+          );
+        rupeesCollisionSound.play();
         if (this.rupiasCollected === 20) {
           // Detener el juego y mostrar la pantalla de "YOU SAVED HYRULE!"
           this.youWon();
@@ -119,16 +122,21 @@ class Game {
         this.pollos.y + this.pollos.h > cadaCentaleon.y
       ) {
         console.log("Colisión entre pollos y centaleones detectada!");
-  
         // Reducir una vida
         this.vidasCollected--;
         const vidasCounterElement = document.querySelector("#vidas");
-        vidasCounterElement.textContent = `Vidas: ${this.vidasCollected}`;
+        vidasCounterElement.textContent = `Pollos pacíficos: ${this.vidasCollected}`;
         
         // Verificar si se han agotado las vidas
         if (this.vidasCollected <= 0) {
           this.gameOver();
         }
+
+        //sonido pollos
+        const pollosCollisionSound = document.getElementById(
+            "collision-pollos"
+          );
+        pollosCollisionSound.play();
   
         // Eliminar el centaleón del array
         this.centaleonArr.splice(index, 1);
@@ -186,8 +194,14 @@ class Game {
         // Reducir una vida
         this.vidasCollected--;
         const vidasCounterElement = document.querySelector("#vidas");
-        vidasCounterElement.textContent = `Vidas: ${this.vidasCollected}`;
-        
+        vidasCounterElement.textContent = `Pollos pacíficos: ${this.vidasCollected}`;
+
+        //sonido pollos
+        const pollosCollisionSound = document.getElementById(
+            "collision-pollos"
+          );
+        pollosCollisionSound.play();
+
         // Verificar si se han agotado las vidas
         if (this.vidasCollected <= 0) {
           this.gameOver();
@@ -253,12 +267,18 @@ class Game {
         // Aquí se ha detectado la colisión con un monstruo
         this.vidasCollected--;
         const vidasCounterElement = document.querySelector("#vidas");
-        vidasCounterElement.textContent = `Vidas: ${this.vidasCollected}`;
+        vidasCounterElement.textContent = `Pollos pacíficos: ${this.vidasCollected}`;
         
         // Verificar si se han agotado las vidas
         if (this.vidasCollected <= 0) {
           this.gameOver();
         }
+
+        //sonido pollos
+        const pollosCollisionSound = document.getElementById(
+            "collision-pollos"
+          );
+        pollosCollisionSound.play();
   
         // Eliminar el monstruo del array
         this.monstruosArr.splice(index, 1);

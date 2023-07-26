@@ -10,6 +10,7 @@
 
     <!-- SPLASH SCREEN -->
     <div id="splash-screen" class="container">
+        <audio id="splash-music" src="./sounds/pantalla-inicio.mp3"></audio>
         <h1>The bad guys have found the ultimate weapon
             to destroy Hyrule: the chicken!</h1>
             <p>Stop them 
@@ -20,17 +21,15 @@
         <button id="start-btn">Save Hyrule from the chickens!</button>
         <audio id="button-sound">
             <source src="./sounds/sonido-pollo.mp3" type="audio/mpeg">
-            <audio id="splash-music" src="./sounds/pantalla-inicio.mp3"></audio>
-
     </div>
 
     <!-- GAME SCREEN -->
     <div id="game-screen" class="container">
         <div id="game-box">
             <img src="./images/granero.jpg" alt="Granero" class="granero-image">
-            <div id = "timer" class="time-left">Time left 30:00</div>
+            <div id = "timer" class="time-left">Time left 01:00</div>
             <div id = "rupees"class="rupees-counter">Rupees: 0</div>
-            <div id = "vidas" class="vidas-container">Vidas restantes: 3</div>
+            <div id = "vidas" class="vidas-container">Pollos pacíficos: 3</div>
         </div>
     </div>
 
@@ -41,6 +40,8 @@
         <audio id="collision-arañas-sound" src="./sounds/link-ataca.2.wav"></audio>
         <audio id="collision-monstruos-sound" src="./sounds/link-ataca3.wav"></audio>
         <audio id="victoria-sound" src="./sounds/victoria.mp3"></audio>
+        <audio id="collision-rupees-sound" src="./sounds/coger-rupia.wav"></audio>
+        <audio id="collision-pollos" src="./sounds/sonido-pollo.mp3"></audio>
         
 
     <!-- GAME OVER SCREEN -->
@@ -58,7 +59,7 @@
         <h3>...enough to get the Master Sword and put an end to
             all the evil from this world!</h3>
         <!-- <img src="./images/rupias.gif" alt="rupias-gift" class="rupias-gift"> -->
-        <!-- <img src="./images/confeti.gif" alt="confeti-gift" class="confeti-gift"> -->
+        <!-- <img src="./images/confeti2.gif" alt="confeti-gift" class="confeti-gift"> -->
         <button id="restart-btn-youwon">Play again?</button></div>
         <!-- <div img src="./images/master-sword.png" alt="Sword" class="master-sword-image"></div> -->
     </div>

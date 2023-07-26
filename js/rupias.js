@@ -10,8 +10,8 @@ class Rupias {
     this.x = (Math.random() * (gameBoxNode.clientWidth * 4 / 5)) + gameBoxNode.clientWidth / 4;
     this.y = Math.random() * (gameBoxNode.clientHeight * 2 / 2);
 
-    this.w = 30;
-    this.h = 25;
+    this.w = 40;
+    this.h = 35;
 
     this.node.style.width = `${this.w}px`; // ancho
     this.node.style.height = `${this.h}px`; // alto
