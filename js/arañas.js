@@ -1,6 +1,6 @@
 class Arañas {
 
-    constructor () {
+    constructor (velocity) {
           this.node = document.createElement("img")
           this.node.src = "./images/araña.png"
        gameBoxNode.append(this.node)
@@ -17,10 +17,12 @@ this.node.style.height = `${this.h}px`; // alto
 this.node.style.position = "absolute";
 this.node.style.top = `${this.y}px`; //posición inicial vertical
 this.node.style.left = `${this.x}px`; 
+
+this.speed = velocity
     }
    
 automaticMovement = () => {
-this.x -= 0.9;
+this.x -= this.speed;
 this.positionUpdate();
 }
       

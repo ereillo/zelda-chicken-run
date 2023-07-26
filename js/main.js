@@ -69,7 +69,7 @@ reStartBtnWonNode.addEventListener("click", function () {
 });
 
 window.addEventListener("keydown", (event) => {
-  console.log("Presionaste una tecla:", event.key);
+//   console.log("Presionaste una tecla:", event.key);
   if (event.key === "ArrowUp") {
     gameObj.link.moveUp();
   } else if (event.key === "ArrowDown") {

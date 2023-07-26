@@ -1,6 +1,6 @@
 class Centaleon {
 
-constructor () {
+constructor (velocity) {  //este velocity es para poder dar un speed desde fuera 
 this.node = document.createElement("img")
 this.node.src = "./images/centaleon.png"
 this.isAlive = true
@@ -18,10 +18,12 @@ this.node.style.height = `${this.h}px`; // alto
 this.node.style.position = "absolute";
 this.node.style.top = `${this.y}px`; //posición inicial vertical
 this.node.style.left = `${this.x}px`; 
+
+this.speed = velocity
 }
     
 automaticMovement = () => {
-  this.x -= 1.7;
+  this.x -= this.speed;
   this.positionUpdate();
 }
 
