@@ -23,7 +23,7 @@ function countdown() {
         gameScreenNode.style.display = "none";
         youwonScreenNode.style.display = "flex";
       }
-    }, 2000);
+    }, 1000);
   }
 
 function deleteCountdown() {

@@ -26,10 +26,11 @@ function startGame() {
     // Iniciar el juego
     gameObj = new Game();
     gameObj.gameLoop();
+    countdown(); // Llamar al contador después de que el desvanecimiento haya terminado
   }, 1000);
   gameSound.play();
-  countdown();
 }
+
 
 function restartGame() {
   splashScreenNode.classList.add("fade-out");
