@@ -22,6 +22,7 @@ class Link {
 
   //aquí los métodos de link (métodos se crean con funciones de flecha)
   moveUp = () => {
+    // console.log("link se mueve arriba")
     if (this.y - 10 >= 0) {
       this.y -= this.linkMovement;
       this.node.style.top = `${this.y}px`;

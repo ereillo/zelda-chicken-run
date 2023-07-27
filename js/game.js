@@ -64,7 +64,6 @@ class Game {
 //   };
 
 youWon = () => {
-    // const youWonScreenSound = document.querySelector("#pantalla-you-won-sound")
     this.isGameOn = false;
     gameScreenNode.style.display = "none"; //ocultar la pantalla de juego
     youwonScreenNode.style.display = "flex"; //mostrar la pantalla final
