@@ -254,6 +254,6 @@ div.youwon-text {
 }
 
 
-#game-screen, #gameover-screen, #crazy-gameover-screen, #crazy-game-screen, #crazy-youwon-screen, #crazy-splash-screen {
+#game-screen, #gameover-screen, #youwon-screen, #crazy-gameover-screen, #crazy-game-screen, #crazy-youwon-screen, #crazy-splash-screen {
     display: none;
   }   
