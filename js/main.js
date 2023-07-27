@@ -9,30 +9,34 @@ const gameBoxNode = document.querySelector("#game-box");
 const gameoverScreenNode = document.querySelector("#gameover-screen");
 const youwonScreenNode = document.querySelector("#youwon-screen");
 const reStartBtnNode = document.querySelector("#restart-btn-gameover"); // boton de reinicio
-const buttonSound = document.querySelector("#button-sound");
+const buttonSoundNode = document.querySelector("#button-sound");
 const reStartBtnWonNode = document.querySelector("#restart-btn-youwon");
-const crazyBtnNode = document.querySelector("#go-crazy-btn");
-const crazyGameScreenNode = document.querySelector("#crazy-game-screen")
-const crazyGameBoxNode = document.querySelector("#crazy-game-box")
-const crazyGameOverScreenNode = document.querySelector("#crazy-gameover-screen")
+const gameSoundSoundNode = document.querySelector("#juego-sound")
+// const crazyBtnNode = document.querySelector("#go-crazy-btn");
+// const crazyGameScreenNode = document.querySelector("#crazy-game-screen")
+// const crazyGameBoxNode = document.querySelector("#crazy-game-box")
+// const crazyGameOverScreenNode = document.querySelector("#crazy-gameover-screen")
 
 let gameObj = null;
-let crazyGameObj = null
+// let crazyGameObj = null;
 
-let gameSound = document.querySelector("#juego-sound");
-
+let isArrowUpPressed = false;
+let isArrowDownPressed = false;
+let isArrowLeftPressed = false;
+let isArrowRightPressed = false;
 
 //STATE MANAGEMENT FUNCTIONS. QUÉ PÁGINA QUIERO QUE SE VEA Y CUÁL NO
+
 function startGame() {
   splashScreenNode.classList.add("fade-out");
   setTimeout(function () {
     splashScreenNode.style.display = "none";
     gameScreenNode.style.display = "flex";
+    gameSoundSoundNode.style.display = "flex"
     // Iniciar el juego
     gameObj = new Game();
     gameObj.gameLoop();
     countdown();
-    gameSound.play(); // Llamar al contador después de que el desvanecimiento haya terminado
   }, 1000);
 }
 
@@ -56,50 +60,55 @@ function restartGame() {
     gameObj = new Game();
     gameObj.gameLoop();
     countdown();
-    gameSound.play();
   // }, 1000);
 }
 
-function startCrazyGame() {
-  console.log("El botón de crazy está funcionando.")
-  youwonScreenNode.classList.add("fade-out");
-  // setTimeout(function () {
-    gameBoxNode.innerHTML = `
-    <div id="game-box">
-        <img src="./images/granero.jpg" alt="Granero" class="granero-image">
-        <div id = "rupees"class="rupees-counter">Rupees: 0</div>
-        <div id = "vidas" class="vidas-container">Vidas restantes: 3</div>
-    </div>`;
-    youwonScreenNode.style.display = "none";
-    crazyGameScreenNode.style.display = "flex";
-    // Iniciar el juego
-    crazyGameObj = new CrazyGame();
-    crazyGameObj.crazyGameLoop(); // Llamar al contador después de que el desvanecimiento haya terminado
-  // }, 1000);
-  
-}
+// function startCrazyGame() {
+//   console.log("El botón de crazy está funcionando.")
+//   // youwonScreenNode.classList.add("fade-out");
+//   // setTimeout(function () {
+//     gameBoxNode.innerHTML = `
+//     <div id="game-box">
+//         <img src="./images/granero.jpg" alt="Granero" class="granero-image">
+//         <div id = "rupees"class="rupees-counter">Rupees: 0</div>
+//         <div id = "vidas" class="vidas-container">Vidas restantes: 3</div>
+//     </div>`;
+//     youwonScreenNode.style.display = "none";
+//     gameoverScreenNode.style.display = "none";
+//     crazyGameScreenNode.style.display = "flex";
+//     crazyGameOverScreenNode.style.display = "none"
+//     // Iniciar el juego
+//     crazyGameObj = new CrazyGame();
+//     crazyGameObj.crazyGameLoop(); // Llamar al contador después de que el desvanecimiento haya terminado
+//   // }, 1000);
+// }
 
 // * ADD EVENT LISTENERS
 
 startBtnNode.addEventListener("click", startGame);
 startBtnNode.addEventListener("click", function () {
-  buttonSound.play();
+  buttonSoundNode.play();
+  buttonSoundNode.volume = 0.1
 });
 
 reStartBtnNode.addEventListener("click", restartGame);
 reStartBtnNode.addEventListener("click", function () {
-  buttonSound.play();
+  buttonSoundNode.play();
+  buttonSoundNode.volume = 0.1
 });
 
 reStartBtnWonNode.addEventListener("click", restartGame);
 reStartBtnWonNode.addEventListener("click", function () {
-  buttonSound.play();
+  buttonSoundNode.play();
+  buttonSoundNode.volume = 0.1
 });
 
-crazyBtnNode.addEventListener("click", startCrazyGame);
-reStartBtnNode.addEventListener("click", function () {
-  buttonSound.play();
-});
+// crazyBtnNode.addEventListener("click", startCrazyGame);
+// reStartBtnNode.addEventListener("click", function () {
+//   buttonSound.play();
+// });
+
+
 
 
 window.addEventListener("keydown", (event) => {

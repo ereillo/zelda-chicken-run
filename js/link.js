@@ -8,8 +8,8 @@ class Link {
     //aquí las propiedades de Link
     this.x = 250;
     this.y = 200;
-    this.w = 90;
-    this.h = 85;
+    this.w = 80;
+    this.h = 75;
 
     this.node.style.width = `${this.w}px`; // ancho
     this.node.style.height = `${this.h}px`; // alto
@@ -17,7 +17,7 @@ class Link {
     this.node.style.top = `${this.y}px`; //posición inicial vertical
     this.node.style.left = `${this.x}px`; //posición inicial horizontal
 
-    this.linkMovement = 17;
+    this.linkMovement = 19;
   }
 
   //aquí los métodos de link (métodos se crean con funciones de flecha)
@@ -48,6 +48,16 @@ class Link {
       this.node.style.left = `${this.x}px`;
     }
   };
+
+ 
+
+
+
+
+
+
+
+
 
 //   positionUpdate = () => {
 //     this.node.style.top = `${this.y}px`;

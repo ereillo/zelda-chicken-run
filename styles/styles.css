@@ -256,7 +256,7 @@ size: 400px;
   font-family: "ButtonTipo";
 }
 
-#go-crazy-btn {
+/* #go-crazy-btn {
     font-size: 24px;
   padding: 10px 20px;
   background-color: rgb(0, 0, 0);
@@ -265,7 +265,7 @@ size: 400px;
   cursor: pointer;
   margin: 0;
   font-family: "ButtonTipo";
-}
+} */
 
 /* .confeti-gift {
     position: fixed; 
@@ -275,31 +275,31 @@ size: 400px;
     height: 100vh; 
     background-size: cover; 
     background-repeat: no-repeat; 
-    z-index: 9999; 
+    z-index: -9999; 
   } */
 
-  #crazy-game-screen {
+  /* #crazy-game-screen {
     background-image: url("../images/game-box2.png");
     /* background-image: url("../images/trifuerzas4.png"); */
     /* background-color: 
       #153126; */
-    overflow: hidden;
-    background-size: cover;
-  }
+    /* overflow: hidden;
+    background-size: cover; */
+  /* } */
 
-  #crazy-game-box {
+  /* #crazy-game-box {
     background-color: darkgray;
     width: 900px;
     height: 500px;
     overflow: hidden;
   
     position: relative; /* this will allow elements to be positioned relative to the game-box */
-    user-select: none; /* this will prevent elements from being highlighted */
-  
+    /* user-select: none; /* this will prevent elements from being highlighted */
+/*   
     background-image: url("../images/game-box.jpg");
     background-position: center;
     background-size: cover;
-  }
+  /* } */ 
 
 #game-screen, #youwon-screen, #gameover-screen, #crazy-gameover-screen, #crazy-game-screen, #crazy-youwon-screen, #crazy-splash-screen {
     display: none;

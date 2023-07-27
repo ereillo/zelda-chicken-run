@@ -1,6 +1,6 @@
 class Centaleon {
 
-constructor (velocity) {  //este velocity es para poder dar un speed desde fuera 
+constructor (velocity) {  //este velocity es para poder dar un speed desde fuera
 this.node = document.createElement("img")
 this.node.src = "./images/centaleon.png"
 this.isAlive = true
@@ -9,7 +9,7 @@ gameBoxNode.append(this.node)
     
 //posición y dimesión
 this.x = gameBoxNode.offsetWidth;
-this.y = 200;
+this.y = 220;
 this.w = 150;
 this.h = 100;
 

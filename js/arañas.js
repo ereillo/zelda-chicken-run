@@ -8,9 +8,9 @@ class Arañas {
    
    
 this.x = gameBoxNode.offsetWidth;
-this.y = 380;
-this.w = 150;
-this.h = 100;
+this.y = 400;
+this.w = 110;
+this.h = 70;
 
 this.node.style.width = `${this.w}px`; // ancho 
 this.node.style.height = `${this.h}px`; // alto

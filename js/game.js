@@ -31,22 +31,47 @@ class Game {
     this.randomNumber = Math.floor(
       Math.random() * (this.max - this.min) + this.min
     );
+
+    this.adjustVolume();
+
   }
 
+  adjustVolume = () => {
+    const audioElements = [
+      "collision-rupees-sound",
+      "collision-blue-rupees-sound",
+      "victoria-sound",
+      "collision-pollos",
+      "collision-centaleones-sound",
+      "collision-arañas-sound",
+      "collision-monstruos-sound"
+    ];
+
+    audioElements.forEach((elementId) => {
+      const audioElement = document.getElementById(elementId);
+      if (audioElement) {
+        audioElement.volume = 0.05; // O ajusta el volumen al valor que desees, por ejemplo, 0.05.
+      }
+    });
+  };
+  
 //   pollosAparecen = () => {
+//     let nuevoPollos
 //     let numPollos = 3;
 //     if (this.pollosArr.length < numPollos) {
-//       this.pollosArr.push(new Pollos());
+//       this.pollosArr.push(nuevoPollos = new Pollos);
 //     }
 //   };
 
-  youWon = () => {
+youWon = () => {
+    // const youWonScreenSound = document.querySelector("#pantalla-you-won-sound")
     this.isGameOn = false;
     gameScreenNode.style.display = "none"; //ocultar la pantalla de juego
     youwonScreenNode.style.display = "flex"; //mostrar la pantalla final
     deleteCountdown();
+    // youWonScreenSound.play()
   };
-
+  
   gameOver = () => {
     const gameOverSound = document.querySelector("#collision-game-over-sound")
     // const pantallaGameOverSound = document.querySelector("#game-over-sound")

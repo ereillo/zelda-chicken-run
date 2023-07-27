@@ -12,7 +12,7 @@ class Rupias {
     }
     gameBoxNode.append(this.node)
 
-  this.x = (Math.random() * (gameBoxNode.clientWidth * 4 / 5)) + gameBoxNode.clientWidth / 4;
+      this.x = (Math.random() * (gameBoxNode.clientWidth * 4 / 5)) + gameBoxNode.clientWidth / 4;
       this.y = Math.random() * (gameBoxNode.clientHeight * 7 / 10) + gameBoxNode.clientHeight / 7;
   
       this.w = 40;
@@ -25,10 +25,6 @@ class Rupias {
       this.node.style.left = `${this.x}px`; // posición inicial horizontal
 }
 }
-
-
-
-
 
 
 
