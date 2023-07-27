@@ -44,16 +44,20 @@ class Game {
     this.isGameOn = false;
     gameScreenNode.style.display = "none"; //ocultar la pantalla de juego
     youwonScreenNode.style.display = "flex"; //mostrar la pantalla final
+    deleteCountdown();
   };
 
   gameOver = () => {
+    const gameOverSound = document.querySelector("#collision-game-over-sound")
+    // const pantallaGameOverSound = document.querySelector("#game-over-sound")
     this.vidasCollected = 0;
     // deleteCountdown()
     this.isGameOn = false;
     gameScreenNode.style.display = "none"; //ocultar la pantalla de juego
     gameoverScreenNode.style.display = "flex"; //mostrar la pantalla final
-    const gameOverSound = document.getElementById("collision-game-over-sound");
-    // gameOverSound.play();
+    deleteCountdown();
+    gameOverSound.play();
+    // pantallaGameOverSound.play();
   };
 
   rupiasAparecen = () => {
@@ -551,7 +555,6 @@ class Game {
     this.collisionMonstruosPollos();
     this.collisionMonstruosPollos2();
     this.collisionMonstruosPollos3();
-    this.collision
     this.collisionMonstruosLink();
 
     this.rupiasAparecen();

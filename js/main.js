@@ -11,15 +11,15 @@ const youwonScreenNode = document.querySelector("#youwon-screen");
 const reStartBtnNode = document.querySelector("#restart-btn-gameover"); // boton de reinicio
 const buttonSound = document.querySelector("#button-sound");
 const reStartBtnWonNode = document.querySelector("#restart-btn-youwon");
-const crazyBtnNode = document.querySelector("#crazy-btn");
-const crazySplashScreenNode = document.querySelector("#crazy-splas-screen")
-const crazyGameScreenNode = document.querySelector("#game-screen")
+const crazyBtnNode = document.querySelector("#go-crazy-btn");
+const crazyGameScreenNode = document.querySelector("#crazy-game-screen")
 const crazyGameBoxNode = document.querySelector("#crazy-game-box")
 const crazyGameOverScreenNode = document.querySelector("#crazy-gameover-screen")
 
 let gameObj = null;
+let crazyGameObj = null
 
-let gameSound = document.querySelector("juego-sound");
+let gameSound = document.querySelector("#juego-sound");
 
 
 //STATE MANAGEMENT FUNCTIONS. QUÉ PÁGINA QUIERO QUE SE VEA Y CUÁL NO
@@ -31,15 +31,16 @@ function startGame() {
     // Iniciar el juego
     gameObj = new Game();
     gameObj.gameLoop();
-    countdown(); // Llamar al contador después de que el desvanecimiento haya terminado
+    countdown();
+    gameSound.play(); // Llamar al contador después de que el desvanecimiento haya terminado
   }, 1000);
-  gameSound.play();
 }
 
 
 function restartGame() {
-  splashScreenNode.classList.add("fade-out");
-  setTimeout(function () {
+  // youwonScreenNode.classList.add("fade-out");
+  // gameoverScreenNode.classList.add("fade-out");
+  // setTimeout(function () {
     gameBoxNode.innerHTML = `
     <div id="game-box">
         <img src="./images/granero.jpg" alt="Granero" class="granero-image">
@@ -56,21 +57,27 @@ function restartGame() {
     gameObj.gameLoop();
     countdown();
     gameSound.play();
-  }, 1000);
+  // }, 1000);
 }
 
-// function startCrazyGame() {
-//   crazySplashScreenNode.classList.add("fade-out");
-//   setTimeout(function () {
-//     gameBoxNode.innerHTML
-//     youwonScreenNode.style.display = "none";
-//     crazyGameScreenNode.style.display = "flex";
-//     // Iniciar el juego
-//     gameObj = new CrazyGame();
-//     gameObj.gameLoop(); // Llamar al contador después de que el desvanecimiento haya terminado
-//   }, 1000);
-//   gameSound.play();
-// }
+function startCrazyGame() {
+  console.log("El botón de crazy está funcionando.")
+  youwonScreenNode.classList.add("fade-out");
+  // setTimeout(function () {
+    gameBoxNode.innerHTML = `
+    <div id="game-box">
+        <img src="./images/granero.jpg" alt="Granero" class="granero-image">
+        <div id = "rupees"class="rupees-counter">Rupees: 0</div>
+        <div id = "vidas" class="vidas-container">Vidas restantes: 3</div>
+    </div>`;
+    youwonScreenNode.style.display = "none";
+    crazyGameScreenNode.style.display = "flex";
+    // Iniciar el juego
+    crazyGameObj = new CrazyGame();
+    crazyGameObj.crazyGameLoop(); // Llamar al contador después de que el desvanecimiento haya terminado
+  // }, 1000);
+  
+}
 
 // * ADD EVENT LISTENERS
 
@@ -89,7 +96,11 @@ reStartBtnWonNode.addEventListener("click", function () {
   buttonSound.play();
 });
 
-// crazyBtnNode.addEventListener("click", startCrazyGame);
+crazyBtnNode.addEventListener("click", startCrazyGame);
+reStartBtnNode.addEventListener("click", function () {
+  buttonSound.play();
+});
+
 
 window.addEventListener("keydown", (event) => {
 //   console.log("Presionaste una tecla:", event.key);

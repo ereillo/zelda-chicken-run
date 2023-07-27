@@ -16,10 +16,8 @@ function countdown() {
   
       if (seconds <= 0) {
         clearInterval(intervalId);
-        scoreElement.textContent = "Well done!";
-  
         // Detener el juego y mostrar la pantalla de "YOU SAVED HYRULE!"
-        gameObj.youWon();
+        gameObj.gameOver();
         gameScreenNode.style.display = "none";
         youwonScreenNode.style.display = "flex";
       }

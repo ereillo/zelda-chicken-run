@@ -33,6 +33,7 @@
 
     <audio id="collision-game-over-sound" src="./sounds/gallo-game-over.mp3"></audio>
         <audio id="juego-sound" src="./sounds/pantalla-juego.mp3"></audio>
+        <audio id="game-over-sound" src="./sounds/pantalla-game-over.mp3"></audio>
         <audio id="collision-centaleones-sound" src="./sounds/link-ataca.wav"></audio>
         <audio id="collision-centaleones-sound" src="./sounds/link-ataca.wav"></audio>
         <audio id="collision-arañas-sound" src="./sounds/link-ataca.2.wav"></audio>
@@ -64,18 +65,9 @@
         <!-- <div img src="./images/master-sword.png" alt="Sword" class="master-sword-image"></div> -->
     </div>
 
-    <!-- CRAZY SPLASH SCREEN -->
-    <div id="crazy-splash-screen" class="container">
-        <audio id="splash-music" src="./sounds/pantalla-inicio.mp3"></audio>
-        <button id="crazy-btn">Go and die like a hero!</button>
-        <h1>NO TIMER. DO YOUR BEST AND SURVIVE!</h1>
-            <audio id="button-sound">
-            <source src="./sounds/sonido-pollo.mp3" type="audio/mpeg">
-    </div>
-
     <!-- CRAZY GAME SCREEN -->
     <div id="crazy-game-screen" class="container">
-        <div id="game-box">
+        <div id="crazy-game-box">
             <img src="./images/granero.jpg" alt="Granero" class="granero-image">
             <div id = "timer" class="time-left">Time left 01:00</div>
             <div id = "rupees"class="rupees-counter">Rupees: 0</div>
@@ -103,6 +95,7 @@
     <script src="./js/contador.js"></script>
     <script src="./js/rupias.js"></script>
     <script src="./js/contador-rupias.js"></script>
+    <script src="./js/crazy-game.js"></script>
     
 
 

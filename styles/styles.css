@@ -176,7 +176,7 @@ body {
   position: relative;
   font-size: 18px;
   margin-bottom: 10px;
-  top: -90px;
+  top: -150px;
   text-align: center;
   color: #a27026;
   font-size: 40px;
@@ -277,6 +277,29 @@ size: 400px;
     background-repeat: no-repeat; 
     z-index: 9999; 
   } */
+
+  #crazy-game-screen {
+    background-image: url("../images/game-box2.png");
+    /* background-image: url("../images/trifuerzas4.png"); */
+    /* background-color: 
+      #153126; */
+    overflow: hidden;
+    background-size: cover;
+  }
+
+  #crazy-game-box {
+    background-color: darkgray;
+    width: 900px;
+    height: 500px;
+    overflow: hidden;
+  
+    position: relative; /* this will allow elements to be positioned relative to the game-box */
+    user-select: none; /* this will prevent elements from being highlighted */
+  
+    background-image: url("../images/game-box.jpg");
+    background-position: center;
+    background-size: cover;
+  }
 
 #game-screen, #youwon-screen, #gameover-screen, #crazy-gameover-screen, #crazy-game-screen, #crazy-youwon-screen, #crazy-splash-screen {
     display: none;
