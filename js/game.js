@@ -69,20 +69,16 @@ youWon = () => {
     gameScreenNode.style.display = "none"; //ocultar la pantalla de juego
     youwonScreenNode.style.display = "flex"; //mostrar la pantalla final
     deleteCountdown();
-    // youWonScreenSound.play()
   };
   
   gameOver = () => {
     const gameOverSound = document.querySelector("#collision-game-over-sound")
-    // const pantallaGameOverSound = document.querySelector("#game-over-sound")
     this.vidasCollected = 0;
-    // deleteCountdown()
     this.isGameOn = false;
     gameScreenNode.style.display = "none"; //ocultar la pantalla de juego
     gameoverScreenNode.style.display = "flex"; //mostrar la pantalla final
     deleteCountdown();
     gameOverSound.play();
-    // pantallaGameOverSound.play();
   };
 
   rupiasAparecen = () => {

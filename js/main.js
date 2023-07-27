@@ -12,13 +12,9 @@ const reStartBtnNode = document.querySelector("#restart-btn-gameover"); // boton
 const buttonSoundNode = document.querySelector("#button-sound");
 const reStartBtnWonNode = document.querySelector("#restart-btn-youwon");
 const gameSoundSoundNode = document.querySelector("#juego-sound")
-// const crazyBtnNode = document.querySelector("#go-crazy-btn");
-// const crazyGameScreenNode = document.querySelector("#crazy-game-screen")
-// const crazyGameBoxNode = document.querySelector("#crazy-game-box")
-// const crazyGameOverScreenNode = document.querySelector("#crazy-gameover-screen")
 
 let gameObj = null;
-// let crazyGameObj = null;
+
 
 let isArrowUpPressed = false;
 let isArrowDownPressed = false;
@@ -28,6 +24,7 @@ let isArrowRightPressed = false;
 //STATE MANAGEMENT FUNCTIONS. QUÉ PÁGINA QUIERO QUE SE VEA Y CUÁL NO
 
 function startGame() {
+  // console.log("juego empieza")
   splashScreenNode.classList.add("fade-out");
   setTimeout(function () {
     splashScreenNode.style.display = "none";
@@ -42,9 +39,7 @@ function startGame() {
 
 
 function restartGame() {
-  // youwonScreenNode.classList.add("fade-out");
-  // gameoverScreenNode.classList.add("fade-out");
-  // setTimeout(function () {
+  // console.log("vuelve el juego")
     gameBoxNode.innerHTML = `
     <div id="game-box">
         <img src="./images/granero.jpg" alt="Granero" class="granero-image">
@@ -60,28 +55,7 @@ function restartGame() {
     gameObj = new Game();
     gameObj.gameLoop();
     countdown();
-  // }, 1000);
 }
-
-// function startCrazyGame() {
-//   console.log("El botón de crazy está funcionando.")
-//   // youwonScreenNode.classList.add("fade-out");
-//   // setTimeout(function () {
-//     gameBoxNode.innerHTML = `
-//     <div id="game-box">
-//         <img src="./images/granero.jpg" alt="Granero" class="granero-image">
-//         <div id = "rupees"class="rupees-counter">Rupees: 0</div>
-//         <div id = "vidas" class="vidas-container">Vidas restantes: 3</div>
-//     </div>`;
-//     youwonScreenNode.style.display = "none";
-//     gameoverScreenNode.style.display = "none";
-//     crazyGameScreenNode.style.display = "flex";
-//     crazyGameOverScreenNode.style.display = "none"
-//     // Iniciar el juego
-//     crazyGameObj = new CrazyGame();
-//     crazyGameObj.crazyGameLoop(); // Llamar al contador después de que el desvanecimiento haya terminado
-//   // }, 1000);
-// }
 
 // * ADD EVENT LISTENERS
 
@@ -102,14 +76,6 @@ reStartBtnWonNode.addEventListener("click", function () {
   buttonSoundNode.play();
   buttonSoundNode.volume = 0.1
 });
-
-// crazyBtnNode.addEventListener("click", startCrazyGame);
-// reStartBtnNode.addEventListener("click", function () {
-//   buttonSound.play();
-// });
-
-
-
 
 window.addEventListener("keydown", (event) => {
 //   console.log("Presionaste una tecla:", event.key);
