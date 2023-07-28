@@ -10,8 +10,8 @@ gameBoxNode.append(this.node)
 //posición y dimesión
 this.x = gameBoxNode.offsetWidth;
 this.y = 220;
-this.w = 150;
-this.h = 100;
+this.w = 140;
+this.h = 95;
 
 this.node.style.width = `${this.w}px`; // ancho 
 this.node.style.height = `${this.h}px`; // alto

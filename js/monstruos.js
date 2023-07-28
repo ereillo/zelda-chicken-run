@@ -9,8 +9,8 @@ constructor (velocity) {
    
 this.x = gameBoxNode.offsetWidth;
 this.y = 50;
-this.w = 120;
-this.h = 90;
+this.w = 117;
+this.h = 85;
 
 this.node.style.width = `${this.w}px`; // ancho 
 this.node.style.height = `${this.h}px`; // alto
