@@ -50,17 +50,7 @@ class Link {
     }
   };
 
- 
-
-
-
-
-
-
-
-
-
-//   positionUpdate = () => {
-//     this.node.style.top = `${this.y}px`;
-//   };
+  //   positionUpdate = () => {
+  //     this.node.style.top = `${this.y}px`;
+  //   };
 }

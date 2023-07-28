@@ -11,10 +11,9 @@ const youwonScreenNode = document.querySelector("#youwon-screen");
 const reStartBtnNode = document.querySelector("#restart-btn-gameover"); // boton de reinicio
 const buttonSoundNode = document.querySelector("#button-sound");
 const reStartBtnWonNode = document.querySelector("#restart-btn-youwon");
-const gameSoundSoundNode = document.querySelector("#juego-sound")
+const gameSoundSoundNode = document.querySelector("#juego-sound");
 
 let gameObj = null;
-
 
 let isArrowUpPressed = false;
 let isArrowDownPressed = false;
@@ -29,7 +28,7 @@ function startGame() {
   setTimeout(function () {
     splashScreenNode.style.display = "none";
     gameScreenNode.style.display = "flex";
-    gameSoundSoundNode.style.display = "flex"
+    gameSoundSoundNode.style.display = "flex";
     // Iniciar el juego
     gameObj = new Game();
     gameObj.gameLoop();
@@ -37,24 +36,23 @@ function startGame() {
   }, 1000);
 }
 
-
 function restartGame() {
   // console.log("vuelve el juego")
-    gameBoxNode.innerHTML = `
+  gameBoxNode.innerHTML = `
     <div id="game-box">
         <img src="./images/granero.jpg" alt="Granero" class="granero-image">
         <div id = "timer" class="time-left">Time left 10:00</div>
         <div id = "rupees"class="rupees-counter">Rupees: 0</div>
         <div id = "vidas" class="vidas-container">Vidas restantes: 3</div>
     </div>`;
-    gameScreenNode.style.display = "flex"; //PARA REINICIAR EL JUEGO
-    gameoverScreenNode.style.display = "none";
-    youwonScreenNode.style.display = "none";
+  gameScreenNode.style.display = "flex"; //PARA REINICIAR EL JUEGO
+  gameoverScreenNode.style.display = "none";
+  youwonScreenNode.style.display = "none";
 
-    // Iniciar el juego
-    gameObj = new Game();
-    gameObj.gameLoop();
-    countdown();
+  // Iniciar el juego
+  gameObj = new Game();
+  gameObj.gameLoop();
+  countdown();
 }
 
 // * ADD EVENT LISTENERS
@@ -62,23 +60,23 @@ function restartGame() {
 startBtnNode.addEventListener("click", startGame);
 startBtnNode.addEventListener("click", function () {
   buttonSoundNode.play();
-  buttonSoundNode.volume = 0.1
+  buttonSoundNode.volume = 0.1;
 });
 
 reStartBtnNode.addEventListener("click", restartGame);
 reStartBtnNode.addEventListener("click", function () {
   buttonSoundNode.play();
-  buttonSoundNode.volume = 0.1
+  buttonSoundNode.volume = 0.1;
 });
 
 reStartBtnWonNode.addEventListener("click", restartGame);
 reStartBtnWonNode.addEventListener("click", function () {
   buttonSoundNode.play();
-  buttonSoundNode.volume = 0.1
+  buttonSoundNode.volume = 0.1;
 });
 
 window.addEventListener("keydown", (event) => {
-//   console.log("Presionaste una tecla:", event.key);
+  //   console.log("Presionaste una tecla:", event.key);
   if (event.key === "ArrowUp") {
     gameObj.link.moveUp();
   } else if (event.key === "ArrowDown") {

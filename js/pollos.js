@@ -34,14 +34,14 @@ class Pollos {
 
     // Verificar que el pollo no se salga del primer cuarto del game-box
     // Verificar límites del eje X
-      // Se verifica si la posición x del objeto es menor o igual a 0 o si la posición x más el ancho (w) del objeto es mayor que una cuarta parte del ancho del contenedor (gameBoxNode.clientWidth / 4). 
-      //Esto se hace con la condición if (this.x <= 0 || this.x + this.w > gameBoxNode.clientWidth / 4).
-      // Si se cumple la condición anterior, se invierte la dirección en el eje X multiplicando la velocidad (speedX) por -1. 
-      //Esto se hace con la línea this.speedX *= -1;.
-      // Luego, se ajusta la posición x del objeto según el límite alcanzado. Si la posición x es menor o igual a 0, se ajusta la posición a 0 con la línea this.x = 0;. 
-      // Si la posición x más el ancho (w) del objeto es mayor que el límite derecho, se ajusta la posición al límite derecho restando el ancho del objeto al límite derecho con la línea this.x = gameBoxNode.clientWidth / 4 - this.w;.
-      // De esta manera, si el objeto alcanza el borde izquierdo o derecho del primer tercio del contenedor, se invertirá la dirección en el eje X y se ajustará la posición x del objeto para evitar que se salga de esos límites.
-      if (this.x <= 0 || this.x + this.w > gameBoxNode.clientWidth / 4) {
+    // Se verifica si la posición x del objeto es menor o igual a 0 o si la posición x más el ancho (w) del objeto es mayor que una cuarta parte del ancho del contenedor (gameBoxNode.clientWidth / 4).
+    //Esto se hace con la condición if (this.x <= 0 || this.x + this.w > gameBoxNode.clientWidth / 4).
+    // Si se cumple la condición anterior, se invierte la dirección en el eje X multiplicando la velocidad (speedX) por -1.
+    //Esto se hace con la línea this.speedX *= -1;.
+    // Luego, se ajusta la posición x del objeto según el límite alcanzado. Si la posición x es menor o igual a 0, se ajusta la posición a 0 con la línea this.x = 0;.
+    // Si la posición x más el ancho (w) del objeto es mayor que el límite derecho, se ajusta la posición al límite derecho restando el ancho del objeto al límite derecho con la línea this.x = gameBoxNode.clientWidth / 4 - this.w;.
+    // De esta manera, si el objeto alcanza el borde izquierdo o derecho del primer tercio del contenedor, se invertirá la dirección en el eje X y se ajustará la posición x del objeto para evitar que se salga de esos límites.
+    if (this.x <= 0 || this.x + this.w > gameBoxNode.clientWidth / 4) {
       this.speedX *= -1;
       if (this.x <= 0) {
         this.x = 0; // Ajustar la posición a 0 si alcanza el borde izquierdo

@@ -37,7 +37,6 @@ body {
   margin-left: 620px;
 }
 
-
 @font-face {
   font-family: "ButtonTipo";
   src: url("../images/tipo2.ttf") format("truetype"); /* Ruta de la tipografía y formato */
@@ -65,9 +64,6 @@ body {
 
 #game-screen {
   background-image: url("../images/game-box2.png");
-  /* background-image: url("../images/trifuerzas4.png"); */
-  /* background-color: 
-    #153126; */
   overflow: hidden;
   background-size: cover;
 }
@@ -144,7 +140,6 @@ body {
 }
 
 #gameover-screen {
-  /* position: absolute; Establecemos el posicionamiento relativo para el contenedor */
   background-image: url("../images/game-box2.png");
   background-size: cover;
   display: flex;
@@ -207,9 +202,6 @@ body {
 
 #youwon-screen {
   background-image: url("../images/game-box2.png");
-  /* background-image: url("../images/trifuerzas4.png"); */
-  /* background-color: 
-    #153126; */
   background-size: cover;
   display: block; /* un único bloque inamobible*/
 }
@@ -241,7 +233,6 @@ div.youwon-text {
   color: #a27026;
 }
 
-
 #restart-btn-youwon {
   font-size: 24px;
   padding: 10px 20px;
@@ -253,7 +244,12 @@ div.youwon-text {
   font-family: "ButtonTipo";
 }
 
-
-#game-screen, #gameover-screen, #youwon-screen, #crazy-gameover-screen, #crazy-game-screen, #crazy-youwon-screen, #crazy-splash-screen {
-    display: none;
-  }   
+#game-screen,
+#gameover-screen,
+#youwon-screen,
+#crazy-gameover-screen,
+#crazy-game-screen,
+#crazy-youwon-screen,
+#crazy-splash-screen {
+  display: none;
+}

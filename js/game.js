@@ -12,7 +12,7 @@ class Game {
     this.monstruosArr = [];
 
     this.pollos = new Pollos();
-    this.pollos2 = new Pollos(); 
+    this.pollos2 = new Pollos();
     this.pollos3 = new Pollos();
     // this.pollosArr = []
 
@@ -33,7 +33,6 @@ class Game {
     );
 
     this.adjustVolume();
-
   }
 
   adjustVolume = () => {
@@ -44,7 +43,7 @@ class Game {
       "collision-pollos",
       "collision-centaleones-sound",
       "collision-arañas-sound",
-      "collision-monstruos-sound"
+      "collision-monstruos-sound",
     ];
 
     audioElements.forEach((elementId) => {
@@ -54,24 +53,16 @@ class Game {
       }
     });
   };
-  
-//   pollosAparecen = () => {
-//     let nuevoPollos
-//     let numPollos = 3;
-//     if (this.pollosArr.length < numPollos) {
-//       this.pollosArr.push(nuevoPollos = new Pollos);
-//     }
-//   };
 
-youWon = () => {
+  youWon = () => {
     this.isGameOn = false;
     gameScreenNode.style.display = "none"; //ocultar la pantalla de juego
     youwonScreenNode.style.display = "flex"; //mostrar la pantalla final
     deleteCountdown();
   };
-  
+
   gameOver = () => {
-    const gameOverSound = document.querySelector("#collision-game-over-sound")
+    const gameOverSound = document.querySelector("#collision-game-over-sound");
     this.vidasCollected = 0;
     this.isGameOn = false;
     gameScreenNode.style.display = "none"; //ocultar la pantalla de juego
@@ -108,9 +99,13 @@ youWon = () => {
         this.link.y - overlap + this.link.h - overlap > cadaRupia.y
       ) {
         const rupiasCounterElement = document.getElementById("rupees");
-        const rupeesCollisionSound = document.getElementById("collision-rupees-sound");
-        const youWonSound = document.getElementById("victoria-sound")
-        const bluerupeesCollisionSound = document.getElementById("collision-blue-rupees-sound")
+        const rupeesCollisionSound = document.getElementById(
+          "collision-rupees-sound"
+        );
+        const youWonSound = document.getElementById("victoria-sound");
+        const bluerupeesCollisionSound = document.getElementById(
+          "collision-blue-rupees-sound"
+        );
 
         console.log(cadaRupia.addOnePoint); //estoy accediendo a la propiedad "addOnePoint" de cadaRupia
         if (cadaRupia.addOnePoint === true) {
@@ -179,7 +174,7 @@ youWon = () => {
 
         //sonido pollos
         const pollosCollisionSound =
-        document.getElementById("collision-pollos");
+          document.getElementById("collision-pollos");
         pollosCollisionSound.play();
 
         // Eliminar el centaleón del array
@@ -210,7 +205,7 @@ youWon = () => {
 
         //sonido pollos
         const pollosCollisionSound =
-        document.getElementById("collision-pollos");
+          document.getElementById("collision-pollos");
         pollosCollisionSound.play();
 
         // Eliminar el centaleón del array
@@ -241,7 +236,7 @@ youWon = () => {
 
         //sonido pollos
         const pollosCollisionSound =
-        document.getElementById("collision-pollos");
+          document.getElementById("collision-pollos");
         pollosCollisionSound.play();
 
         // Eliminar el centaleón del array
