@@ -2,7 +2,7 @@
 
 ## [Play the game!](https://ereillo.github.io/zelda-chicken-run/)
 
-(./images/logo2.png)
+<img src= "https://github.com/ereillo/zelda-chicken-run/blob/main/images/logo2.png" width= "500" height= "400">
 
 # Description
 
