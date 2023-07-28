@@ -2,7 +2,7 @@
 
 ## [Play the game!](https://ereillo.github.io/zelda-chicken-run/)
 
-(../images/logo2.png)
+(./images/logo2.png)
 
 # Description
 
